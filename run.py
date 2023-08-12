@@ -1,6 +1,14 @@
 import requests
+from configparser import ConfigParser
 
-api_key = '00165c48737f39ccc87cb007a521b2c2'
+def _get_api_key():
+    """ 
+    Fetch the API key from the configuration (key.ini) file.
+    """
+    config = ConfigParser()
+    config.read("key.ini")
+    return config["openweather"]["api_key"]
+
 
 city = input('Enter city name: ')
 
@@ -23,6 +31,9 @@ if response.status_code == 200:
     print(f'The humidity is {moisture}.')
 else:
     print('Error fetching weather data')
+    
+
+
     
 
 
