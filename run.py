@@ -3,6 +3,7 @@ import json
 import sys
 from configparser import ConfigParser
 from urllib import error, parse, request
+from pprint import pp
 
 
 BASE_WEATHER_API_URL = "http://api.openweathermap.org/data/2.5/weather"
@@ -93,7 +94,8 @@ if __name__ == "__main__":
     user_args = get_user_args()
     query_url = weather_query(user_args.city, user_args.imperial)
     weather_data = get_weather_data(query_url)
-    print(weather_data)
+    pp(weather_data)
+    
 
 
 
