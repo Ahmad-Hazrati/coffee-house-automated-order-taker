@@ -8,6 +8,16 @@ import style
 
 BASE_WEATHER_API_URL = "http://api.openweathermap.org/data/2.5/weather"
 
+#Weather condition codes 
+# Taken from https://openweathermap.org/weather-conditions#Weather-Condition-Codes-2
+THUNDERSTORM = range(200, 300)
+DRIZZLE = range(300, 400)
+RAIN = range(500, 600)
+SNOW = range(600, 700)
+ATMOSPHERE = range(700, 800)
+CLEAR = range(800, 801)
+CLOUDY = range(801, 900)
+
 def read_user_cli_args():
     """Handles the CLI user interactions.
 
@@ -100,17 +110,44 @@ def display_weather_info(weather_data, imperial=False):
     More information at https://openweathermap.org/current#name
     """
     city = weather_data["name"]
+    weather_id = weather_data["weather"][0]["id"]
     weather_description = weather_data["weather"][0]["description"]
     temperature = weather_data["main"]["temp"]
 
     style.change_color(style.REVERSE)
     print(f"{city:^{style.PADDING}}", end="")
     style.change_color(style.RESET)
+    
+    color = _select_weather_display_params(weather_id)
+    
+    style.change_color(color)
     print(
         f"\t{weather_description.capitalize():^{style.PADDING}}",
         end=" ",
     )
+    style.change_color(style.RESET)
     print(f"({temperature}°{'F' if imperial else 'C'})")
+    
+def _select_weather_display_params(weather_id):
+    if weather_id in THUNDERSTORM:
+        color = style.RED
+    elif weather_id in DRIZZLE:
+        color = style.CYAN
+    elif weather_id in RAIN:
+        color = style.BLUE
+    elif weather_id in SNOW:
+        color = style.WHITE
+    elif weather_id in ATMOSPHERE:
+        color = style.BLUE
+    elif weather_id in CLEAR:
+        color = style.YELLOW
+    elif weather_id in CLOUDY:
+        color = style.WHITE
+    else:  # In case the API adds new weather codes
+        color = style.RESET
+    return color
+    
+    
 
 
 if __name__ == "__main__":
