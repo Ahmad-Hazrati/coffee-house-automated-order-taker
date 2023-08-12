@@ -1,6 +1,9 @@
 import requests
 from configparser import ConfigParser
 import argparse
+from urllib import parse
+
+BASE_WEATHER_API_URL = "http://api.openweathermap.org/data/2.5/weather"
 
 def _get_api_key():
     """ 
@@ -30,11 +33,30 @@ def get_user_args():
     )
     return parser.parse_args()
 
-# ...
+def weather_query(city_input, imperial=False):
+    """Builds the URL for an API request to OpenWeather's weather API.
+
+    Args:
+        city_input (List[str]): Name of a city as collected by argparse
+        imperial (bool): Whether or not to use imperial units for temperature
+
+    Returns:
+        str: URL formatted for a call to OpenWeather's city name endpoint
+    """
+    api_key = _get_api_key()
+    city_name = " ".join(city_input)
+    url_encoded_city_name = parse.quote_plus(city_name)
+    units = "imperial" if imperial else "metric"
+    url = (
+        f"{BASE_WEATHER_API_URL}?q={url_encoded_city_name}"
+        f"&units={units}&appid={api_key}"
+    )
+    return url
 
 if __name__ == "__main__":
     user_args = get_user_args()
-    print(user_args.city, user_args.imperial)
+    query_url = weather_query(user_args.city, user_args.imperial)
+    print(query_url)
 
 
 
