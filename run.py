@@ -1,37 +1,22 @@
-import json
 import requests
-import pandas as pd
+
+api_key = '00165c48737f39ccc87cb007a521b2c2'
+
+city = input('Enter city name: ')
+
+url = f'http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}'
+
+response = requests.get(url)
+
+if response.status_code == 200:
+    data = response.json()
+    temp = data['main']['temp']
+    desc = data['weather'][0]['description']
+    print(f'Temperature: {temp} K')
+    print(f'Description: {desc}')
+else:
+    print('Error fetching weather data')
+    
 
 
-OIKO_KEY = '44dfbbe454354c8d99926786d3488a31'
-URL= 'https://api.oikolab.com/weather'
-
-def get_temperature(start_date, end_date, city):
-
-    resp = requests.get(URL,
-        params = {
-            'param': ['temperature'],
-            'start': start_date,
-            'location': city,
-            'end': end_date,
-            'api-key': OIKO_KEY,
-            'freq': 'D'
-            }
-    )
-    weather_data = json.loads(resp.json()['data'])
-    df = pd.DataFrame(index=pd.to_datetime(weather_data['index'],unit='s'),
-                    data=weather_data['data'],
-                    columns=weather_data['columns'])
-
-    temperature = df.iloc[0,4]        
-
-    return int(temperature)
-
-
-city = input()
-date = input()
-temperature = get_temperature(date, date, city)
-
-
-print(f'Temperature for {city} on {date} = {temperature}C')
 
