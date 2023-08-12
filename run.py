@@ -4,9 +4,9 @@ import sys
 from configparser import ConfigParser
 from urllib import error, parse, request
 
-BASE_WEATHER_API_URL = "http://api.openweathermap.org/data/2.5/weather"
-PADDING = 20
+import style
 
+BASE_WEATHER_API_URL = "http://api.openweathermap.org/data/2.5/weather"
 
 def read_user_cli_args():
     """Handles the CLI user interactions.
@@ -103,9 +103,11 @@ def display_weather_info(weather_data, imperial=False):
     weather_description = weather_data["weather"][0]["description"]
     temperature = weather_data["main"]["temp"]
 
-    print(f"{city:^{PADDING}}", end="")
+    style.change_color(style.REVERSE)
+    print(f"{city:^{style.PADDING}}", end="")
+    style.change_color(style.RESET)
     print(
-        f"\t{weather_description.capitalize():^{PADDING}}",
+        f"\t{weather_description.capitalize():^{style.PADDING}}",
         end=" ",
     )
     print(f"({temperature}°{'F' if imperial else 'C'})")
