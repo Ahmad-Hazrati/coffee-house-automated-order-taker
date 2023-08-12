@@ -3,20 +3,12 @@ import json
 import sys
 from configparser import ConfigParser
 from urllib import error, parse, request
-from pprint import pp
-
 
 BASE_WEATHER_API_URL = "http://api.openweathermap.org/data/2.5/weather"
+PADDING = 20
 
-def _get_api_key():
-    """ 
-    Fetch the API key from the configuration (key.ini) file.
-    """
-    config = ConfigParser()
-    config.read("key.ini")
-    return config["openweather"]["api_key"]
 
-def get_user_args():
+def read_user_cli_args():
     """Handles the CLI user interactions.
 
     Returns:
@@ -36,8 +28,9 @@ def get_user_args():
     )
     return parser.parse_args()
 
-def weather_query(city_input, imperial=False):
-    """Builds the URL for an API request to OpenWeather's weather API.
+
+def build_weather_query(city_input, imperial=False):
+    """Builds the URL for an API request to OpenWeather's Weather API.
 
     Args:
         city_input (List[str]): Name of a city as collected by argparse
@@ -56,6 +49,20 @@ def weather_query(city_input, imperial=False):
     )
     return url
 
+
+def _get_api_key():
+    """Fetch the API key from your configuration file.
+
+    Expects a configuration file named "key.ini" with structure:
+
+        [openweather]
+        api_key=<YOUR-OPENWEATHER-API-KEY>
+    """
+    config = ConfigParser()
+    config.read("key.ini")
+    return config["openweather"]["api_key"]
+
+
 def get_weather_data(query_url):
     """Makes an API request to a URL and returns the data as a Python object.
 
@@ -65,10 +72,6 @@ def get_weather_data(query_url):
     Returns:
         dict: Weather information for a specific city
     """
-    response = request.urlopen(query_url)
-    data = response.read()
-    return json.loads(data)
-
     try:
         response = request.urlopen(query_url)
     except error.HTTPError as http_error:
@@ -80,50 +83,36 @@ def get_weather_data(query_url):
             sys.exit(f"Something went wrong... ({http_error.code})")
 
     data = response.read()
-    
+
     try:
         return json.loads(data)
     except json.JSONDecodeError:
         sys.exit("Couldn't read the server response.")
-        
-    return json.loads(data)
 
+
+def display_weather_info(weather_data, imperial=False):
+    """Prints formatted weather information about a city.
+
+    Args:
+        weather_data (dict): API response from OpenWeather by city name
+        imperial (bool): Whether or not to use imperial units for temperature
+
+    More information at https://openweathermap.org/current#name
+    """
+    city = weather_data["name"]
+    weather_description = weather_data["weather"][0]["description"]
+    temperature = weather_data["main"]["temp"]
+
+    print(f"{city:^{PADDING}}", end="")
+    print(
+        f"\t{weather_description.capitalize():^{PADDING}}",
+        end=" ",
+    )
+    print(f"({temperature}°{'F' if imperial else 'C'})")
 
 
 if __name__ == "__main__":
-    user_args = get_user_args()
-    query_url = weather_query(user_args.city, user_args.imperial)
+    user_args = read_user_cli_args()
+    query_url = build_weather_query(user_args.city, user_args.imperial)
     weather_data = get_weather_data(query_url)
-    pp(weather_data)
-    
-
-
-
-# city = input('Enter city name: ')
-
-# url = f'http://api.openweathermap.org/data/2.5/weather?q={city}&units=metric&appid={api_key}'
-
-# response = requests.get(url)
-
-# if response.status_code == 200:
-#     data = response.json()
-#     temp = data['main']['temp']
-#     feels = data ['main']['feels_like']
-#     desc = data['weather']['description']
-#     min_temp = data['main']['temp_min']
-#     max_temp = data['main']['temp_max']
-#     pres = data['main']['pressure']
-#     moisture = data['main']['humidity']
-    
-#     print(f'The temperature is {temp}°C and it feels like {feels}°C.')
-#     print(f'The weather is {desc} with minimum  temperature of {min_temp}°C and maximum of {max_temp}.°C')
-#     print(f'The humidity is {moisture}.')
-# else:
-#     print('Error fetching weather data')
-    
-
-
-    
-
-
-
+    display_weather_info(weather_data, user_args.imperial)
