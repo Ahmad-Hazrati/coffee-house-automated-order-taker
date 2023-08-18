@@ -2,6 +2,7 @@
 import requests
 from datetime import datetime
 import creds
+from art import *
 
 # Weather Condition Codes
 # https://openweathermap.org/weather-conditions#Weather-Condition-Codes-2
@@ -14,12 +15,13 @@ CLEAR = range(800, 801)
 CLOUDY = range(801, 900)
 
 #Request for user input
-location = input("Enter the city name: ")
+#location = input("Enter the city name: ")
 
 #Weather url
-complete_api_link = "https://api.openweathermap.org/data/2.5/weather?q="+location+"&appid="+creds.user_api
-api_link = requests.get(complete_api_link)
-api_data = api_link.json()
+#complete_api_link = "https://api.openweathermap.org/data/2.5/weather?q="+location+"&appid="+creds.user_api
+#api_link = requests.get(complete_api_link)
+#api_data = api_link.json()
+
 
 def select_weather_display_params(weather_id):
     """
@@ -44,25 +46,32 @@ def select_weather_display_params(weather_id):
     return display_params
 
 
-# Create variables to store and display data
-temp_city = ((api_data['main']['temp']) - 273.15)
-feels_like = ((api_data["main"]["feels_like"]) - 273.15)
-country= api_data["sys"]["country"]
-weather_desc = api_data['weather'][0]['description']
-weather_id = api_data["weather"][0]["id"]
-hmdt = api_data['main']['humidity']
-wind_spd = api_data['wind']['speed']
-date_time = datetime.now().strftime("%d %b %Y | %I:%M:%S %p")
 
-print ("----------------------------------------------------------------")
-print ("Weather Stats for - {}  || {} || {}".format(location.upper(),country, date_time))
-print ("----------------------------------------------------------------")
-# Assign the the weather_display function to the weather_symbol variable 
-weather_symbol = select_weather_display_params(weather_id)
-print ("Current temperature is  : {:.2f} deg C".format(temp_city))
-print ("Currently it feels like : {:.2f} deg C".format(feels_like))
-print ("Weather condition is    :",weather_desc)
-print ("Current weather descrip :",weather_symbol)
-print ("Current Humidity is     :",hmdt, '%')
-print ("Current wind speed is   :",wind_spd ,'kmph')
+def display_current_weather_info(api_data):
+    """
+    Prints formatted weather information about a city.
+    """
+    temp_city = ((api_data['main']['temp']) - 273.15)
+    feels_like = ((api_data["main"]["feels_like"]) - 273.15)
+    country= api_data["sys"]["country"]
+    weather_desc = api_data['weather'][0]['description']
+    weather_id = api_data["weather"][0]["id"]
+    humidity = api_data['main']['humidity']
+    wind_spd = api_data['wind']['speed']
+    date_time = datetime.now().strftime("%d %b %Y | %I:%M:%S %p")
+
+    tprint(location.upper())
+    print ("----------------------------------------------------------------")
+    print ("Weather Status for - {}  || {} || {}".format(location.upper(),country, date_time))
+    print ("----------------------------------------------------------------")
+    # Assign the the weather_display function to the weather_symbol variable 
+    weather_symbol = select_weather_display_params(weather_id)
+    print ("Current temperature is  : {:.2f} deg C".format(temp_city))
+    print ("Currently it feels like : {:.2f} deg C".format(feels_like))
+    print ("Weather condition is    :",weather_desc)
+    print ("Current weather descrip :",weather_symbol)
+    print ("Current Humidity is     :",humidity, '%')
+    print ("Current wind speed is   :",wind_spd ,'kmph')
+
+#current_weather_info = display_current_weather_info(api_data)
 
