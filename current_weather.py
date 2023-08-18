@@ -47,7 +47,7 @@ def select_weather_display_params(weather_id):
 
 
 
-def display_current_weather_info(api_data):
+def display_current_weather_info(api_data, location):
     """
     Prints formatted weather information about a city.
     """
@@ -74,4 +74,3 @@ def display_current_weather_info(api_data):
     print ("Current wind speed is   :",wind_spd ,'kmph')
 
 #current_weather_info = display_current_weather_info(api_data)
-

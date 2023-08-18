@@ -3,9 +3,19 @@
 # Required libraries
 import requests
 from datetime import datetime
+from datetime import sleep
 import creds
 from art import *
 
+# Weather Condition Codes
+# https://openweathermap.org/weather-conditions#Weather-Condition-Codes-2
+THUNDERSTORM = range(200, 300)
+DRIZZLE = range(300, 400)
+RAIN = range(500, 600)
+SNOW = range(600, 700)
+ATMOSPHERE = range(700, 800)
+CLEAR = range(800, 801)
+CLOUDY = range(801, 900)
 
 #Request for user input
 #location = input("Enter the city name: ")
@@ -40,7 +50,7 @@ def select_weather_display_params(weather_id):
     return display_params
 
 
-def display_forecast_weather_info(api_data):
+def display_forecast_weather_info(api_data, location):
     """
     Prints formatted weather information about a city.
     """
@@ -58,6 +68,7 @@ def display_forecast_weather_info(api_data):
         weather_id = el["weather"][0]["id"]
         humidity = el["main"]['humidity']
         wind_spd = el["wind"]["speed"]
+        sleep(1)
         print ("-----------------------------------------")
         print ("Weather Status on - {}  ".format(date))
         print ("-----------------------------------------")
