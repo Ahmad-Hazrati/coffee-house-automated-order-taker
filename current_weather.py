@@ -72,5 +72,6 @@ def display_current_weather_info(api_data, location):
     print ("Current weather descrip :",weather_symbol)
     print ("Current Humidity is     :",humidity, '%')
     print ("Current wind speed is   :",wind_spd ,'kmph')
+    print ("----------------------------------------------------------------")
 
 #current_weather_info = display_current_weather_info(api_data)

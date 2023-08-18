@@ -62,6 +62,7 @@ def display_forecast_weather_info(api_data, location):
         if date in dates:
             continue
         dates.append(date)
+        sleep(2)
         temp_city = (el["main"]["temp"] - 273.15)
         feels_like = (el["main"]["feels_like"] - 273.15)
         weather_desc = el["weather"][0]["description"]
@@ -80,6 +81,7 @@ def display_forecast_weather_info(api_data, location):
         print ("Weather description will be :",weather_symbol)
         print ("Humidity will be            :",humidity, '%')
         print ("And Wind speed will be      :",wind_spd ,'kmph\n\n')
+        print ("----------------------------------------------------------------")
         
 
 #forecast_weather_info = display_forecast_weather_info(api_data)

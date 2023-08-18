@@ -1,9 +1,8 @@
-import requests
+
 from current_weather import display_current_weather_info
 from forecast_weather import display_forecast_weather_info
-import weather_history
-import weather_history_class
-
+from weather_comparison import display_comparison_weather_info
+import requests
 from simple_term_menu import TerminalMenu
 from datetime import datetime
 from time import sleep
@@ -11,11 +10,9 @@ from os import system
 import sys
 from art import *
 import creds
-# import threading
-# import constants
  
 
-options = ["Current Weather", "Forecast Weather", "Weather History", "Exit"]
+options = ["Current Weather", "Forecast Weather", "Weather Comparison", "Exit"]
 main_menu = TerminalMenu(options, title="Select your option")
 
 sub_options = ["Main Menu", "Quit"]
@@ -26,12 +23,11 @@ sub_menu = TerminalMenu(sub_options, title="Please select to go to Main Page or 
 if __name__ == "__main__":
     tprint("WEATHER\nFORECASTING\n")
     sleep(1)
-    print("----------------------------------------------------------------------")
+    print("-------------------------------------------------------------------")
     print("You can check the current and forecast weather of your choice city.")
-    print("You can also check the weather history of European Countries' capital")
-    print("for the current year.")
-    print("----------------------------------------------------------------------\n\n")
-    sleep(1)
+    print("You can also compare the current weather of 2 locations.")
+    print("-------------------------------------------------------------------\n\n")
+    sleep(2)
 
 
 
@@ -74,13 +70,19 @@ if __name__ == "__main__":
                 sleep(2)
                 print("\n\n")
                 user_sub_selection()
-            elif options[choice] == "Weather History":
+            elif options[choice] == "Weather Comparison":
                 system('clear')
-                PastWeather.print_weather_to_console()
+                location1 = input("Enter the 1st city name: ")
+                location2 = input("Enter the 2nd city name: ")
+                complete_api_link = "https://api.openweathermap.org/data/2.5/weather?q="+location1+"&appid="+creds.user_api
+                complete_api_link = "https://api.openweathermap.org/data/2.5/weather?q="+location2+"&appid="+creds.user_api
+                api_link = requests.get(complete_api_link, timeout=5)
+                api_data = api_link.json()
+                display_comparison_weather_info(api_data, location1)
+                display_comparison_weather_info(api_data, location2)
                 sleep(2)
                 print("\n\n")
                 user_sub_selection()
-                        
             else:
                 choice = -1
             return
