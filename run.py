@@ -1,8 +1,8 @@
 import requests
 from current_weather import display_current_weather_info
 from forecast_weather import display_forecast_weather_info
-#import weather_history
-#import classes
+import weather_history
+import weather_history_class
 
 from simple_term_menu import TerminalMenu
 from datetime import datetime
@@ -62,7 +62,7 @@ if __name__ == "__main__":
                 api_data = api_link.json()
                 display_current_weather_info(api_data, location)
                 sleep(2)
-                print("\n\n\n")
+                print("\n\n")
                 user_sub_selection()
             elif options[choice] == "Forecast Weather":
                 system('clear')
@@ -72,11 +72,15 @@ if __name__ == "__main__":
                 api_data = api_link.json()
                 display_forecast_weather_info(api_data, location)
                 sleep(2)
-                print("\n\n\n")
+                print("\n\n")
                 user_sub_selection()
             elif options[choice] == "Weather History":
                 system('clear')
+                PastWeather.print_weather_to_console()
+                sleep(2)
+                print("\n\n")
                 user_sub_selection()
+                        
             else:
                 choice = -1
             return
