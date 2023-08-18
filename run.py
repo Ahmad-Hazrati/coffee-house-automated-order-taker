@@ -19,7 +19,7 @@ options = ["Current Weather", "Forecast Weather", "Weather History", "Exit"]
 main_menu = TerminalMenu(options, title="Select your option")
 
 sub_options = ["Main Menu", "Quit"]
-sub_menu = TerminalMenu(sub_options)
+sub_menu = TerminalMenu(sub_options, title="Please select to go to Main Page or Exit")
 
     
 
@@ -38,6 +38,8 @@ if __name__ == "__main__":
     def user_sub_selection():
         choice = sub_menu.show()
         if sub_options[choice] == "Main Menu":
+            system('clear')
+            tprint("WEATHER\nFORECASTING\n\n")
             user_selection()
         elif sub_options[choice] == "Quit":
             sys.exit(0)
@@ -59,6 +61,8 @@ if __name__ == "__main__":
                 api_link = requests.get(complete_api_link, timeout=5)
                 api_data = api_link.json()
                 display_current_weather_info(api_data, location)
+                sleep(2)
+                print("\n\n\n")
                 user_sub_selection()
             elif options[choice] == "Forecast Weather":
                 system('clear')
@@ -67,6 +71,8 @@ if __name__ == "__main__":
                 api_link = requests.get(complete_api_link, timeout=5)
                 api_data = api_link.json()
                 display_forecast_weather_info(api_data, location)
+                sleep(2)
+                print("\n\n\n")
                 user_sub_selection()
             elif options[choice] == "Weather History":
                 system('clear')
@@ -77,15 +83,6 @@ if __name__ == "__main__":
 
 user_selection()
 
-# def user_sub_selection():
-#     if choice == None:
-#         choice= -1
-#     elif sub_options[choice] == "Main Menu":
-#         user_selection
-#     elif sub_options[choice] == "Quit":
-#         sys.exit(0)
-#     return
-# user_sub_selection()
 
 
     
