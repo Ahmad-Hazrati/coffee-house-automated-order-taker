@@ -3,7 +3,7 @@
 # Required libraries
 import requests
 from datetime import datetime
-from datetime import sleep
+from time import sleep
 import creds
 from art import *
 
