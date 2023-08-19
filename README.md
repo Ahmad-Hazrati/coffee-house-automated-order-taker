@@ -124,35 +124,25 @@ The objective of the site is to allow users to check the current and next 5 days
 ### Languages Used
 - **Python**: used extensively during project.
 - **Markdown**: Used exclusively for README.
-- **HTML5**: minor use when adding additional elements to the web page.
-- **CSS3**: minor use when applying styling to app view.<br>
 
 ### Frameworks, Libraries & Programs Used
-- **termcolor**: used to apply foreground and background colors to terminal text.
+- **simple-term-menu**: used to create the app menu options.
+- **art**: used to give font style to the app titles.
+- **requests**: used to request data through API from OpenWeatherMap.
 - **datetime**: from the standard library, used to perform operations on date and time objects and strings.
-- **numpy**: used to create a range of floats due to python range only returning a range of integers.
-- **itertools**: from standard library used to iterate over list for loading animation.
-- **pyowm**: library with classes used to manage Open Weather API calls.
 - **time**: from the standard library used to access sleep method for pauses during pertinent points of relaying information to the user.
 - **os**: from the standard library used to access system method to clear terminal screen at appropriate points whilst the program is running.
-- **tabulate**: used to create a table of contents in the feedback and weather forecast sections of the app.
-- **threading**: used to enable multithreading operations used for loading screens.
+- **sys**: from the standard library used to access system method to quit the program.
+- **system**: from the standard library used to clear the app screen before loading the new data.
 - **Code Institute PEP8 Linter**: used to perform check of Python code.
-- **Open Weather API** used to access weather forecast data for given coordinates.A one call subscription was made for this service which enables 1000 calls per day free before entering the payment tier.
-- **Keynote** use of eyedropper in colour pallette to select CSS theme colours.
-- **Apple Maps App** used to obtain GPS coordinates for testing app.
-- **Apple Weather App** used for comparing app output for given locations.
-- **Code Anywhere** cloud based IDE used during earlier part of the project.
-- **Gitpod** cloud based IDE used for majority of the project.
+- **Open Weather API** used to access weather forecast data for given location / city.A one call subscription was made for this service which enables 1000 calls per day free before entering the payment tier.
+- **Wireframe** is used to sketch the app contents.
+- **Visual Studio Code** IDE used to develop the project.
 - **Git** used for version control.
 - **GitHub** as cloud repository for Git version control.
-- **gspread**: used to complete CRUD actions on Google Sheets.
-- **Credentials**: imported from google.oauth.serivice_account to enable access to Google Sheets.
-- **Google Sheets*** a cloud based service where the historical-weather-data spreadsheet containing two worksheets was utilised for this project.
-  - The first sheet, named *archive*, contains all historical weather data for Dublin Airport, downloaded from Met Eireann. ![archive-sheet](views/README-files/archive-sheet.png)
-  - The second sheet, named *feedback*, is the repository for user feedback. ![feedback-sheet](views/README-files/feedback-sheet.png)
 
 <br><a href="#contents">BACK TO CONTENTS 🔼</a>
+
 ## Testing 
 ### Development Testing
 

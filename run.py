@@ -3,6 +3,7 @@ from current_weather import display_current_weather_info
 from forecast_weather import display_forecast_weather_info
 from weather_comparison import display_weather_info_location_one
 from weather_comparison import display_weather_info_location_two
+import api_key
 
 #Import libraries
 import sys
@@ -12,7 +13,7 @@ from time import sleep
 from os import system
 import os
 from art import *
-import api_key
+
  
 
 def get_user_input():
@@ -152,21 +153,3 @@ if __name__ == "__main__":
     print("-------------------------------------------------------------------\n\n")
     sleep(2)
     user_selection()
-
-
-
-    
-
-
-
-
-
-    
-    
-        
-        
-
-
-
-        
-
