@@ -80,8 +80,8 @@ def display_forecast_weather_info(api_data, location):
         print ("Weather condition will be   :",weather_desc)
         print ("Weather description will be :",weather_symbol)
         print ("Humidity will be            :",humidity, '%')
-        print ("And Wind speed will be      :",wind_spd ,'kmph\n\n')
-        print ("----------------------------------------------------------------")
+        print ("And Wind speed will be      :",wind_spd ,'kmph')
+        print ("----------------------------------------------------------------\n\n")
         
 
 #forecast_weather_info = display_forecast_weather_info(api_data)

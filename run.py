@@ -4,12 +4,9 @@ from forecast_weather import display_forecast_weather_info
 from weather_comparison import display_weather_info_location_one, display_weather_info_location_two
 import sys
 import requests
-import requests
 from simple_term_menu import TerminalMenu
-from datetime import datetime
 from time import sleep
 from os import system
-import sys
 from art import *
 import creds
  
@@ -23,7 +20,7 @@ def get_user_input():
     """
     while True:
         try:
-            location = input("Enter the city name: ")
+            location = input("Enter the city name: \n")
             if location.isalpha():
                 break
         except:
@@ -63,19 +60,17 @@ def user_selection():
             choice = -1
         elif options[choice] == "Current Weather":
             system('clear')
-            location= get_user_input()
-            #location = input("Enter the city name: ")                     
+            location= get_user_input()                   
             complete_api_link = "https://api.openweathermap.org/data/2.5/weather?q="+location+"&appid="+creds.user_api
             api_link = requests.get(complete_api_link, timeout=5)
             api_data = api_link.json()
             display_current_weather_info(api_data, location)
-            sleep(1)
+            sleep(2)
             print("\n\n")
             user_sub_selection()
         elif options[choice] == "Forecast Weather":
             system('clear')
             location = get_user_input()
-            #location = input("Enter the city name: ")
             complete_api_link = "https://api.openweathermap.org/data/2.5/forecast?q="+location+"&appid="+creds.user_api
             api_link = requests.get(complete_api_link, timeout=5)
             api_data = api_link.json()
@@ -87,8 +82,6 @@ def user_selection():
             system('clear')
             location_one = get_user_input()
             location_two = get_user_input()
-            #location1 = input("Enter the 1st city name: ")
-            #location2 = input("Enter the 2nd city name: ")
             complete_api_link_location_one = "https://api.openweathermap.org/data/2.5/weather?q="+location_one+"&appid="+creds.user_api
             complete_api_link_location_two = "https://api.openweathermap.org/data/2.5/weather?q="+location_two+"&appid="+creds.user_api
             api_link_one = requests.get(complete_api_link_location_one)
@@ -112,32 +105,26 @@ def user_selection():
                         print(f"The weather of {location_one} is better than the weather of {location_two}.")
                         print(f"The weather condition is", api_data_one['weather'][0]['description'])
                         print ("----------------------------------------------------------------")
-                        #print(f"{location_one}, is sunny ☀️!")
                     elif api_data_one["weather"][0]["main"] == "Clouds" and api_data_two["weather"][0]["main"] != "Clouds" or "Clear":
                         print(f"The weather of {location_one} is better than the weather of {location_two}.")
                         print(f"The weather condition is", api_data_one['weather'][0]['description'])
                         print ("----------------------------------------------------------------")
-                        #print(f"{location_one}, is cloudy ☁️!")
                     elif api_data_one["weather"][0]["main"] == "Rain" and api_data_two["weather"][0]["main"] != "Rain" or "Clouds" or "Clear":
                         print(f"The weather of {location_one} is better than the weather of {location_two}.")
                         print(f"The weather condition is", api_data_one['weather'][0]['description'])
                         print ("----------------------------------------------------------------")
-                        #print(f"{location_one}, is rainy 🌦️!")
                     elif api_data_one["weather"][0]["main"] == "Drizzle" and api_data_two["weather"][0]["main"]  != "Drizzle" or "Rain" or "Clouds" or "Clear":
                         print(f"The weather of {location_one} is better than the weather of {location_two}.")
                         print(f"The weather condition is", api_data_one['weather'][0]['description'])
                         print ("----------------------------------------------------------------")
-                        #print(f"{location_one} is drizzle 🌧️!")
                     elif api_data_one["weather"][0]["main"] == "Snow" and api_data_two["weather"][0]["main"]  != "Snow" or "Drizzle" or "Rain" or "Clouds" or "Clear":
                         print(f"The weather of {location_one} is better than the weather of {location_two}.")
                         print(f"The weather condition is", api_data_one['weather'][0]['description'])
                         print ("----------------------------------------------------------------")
-                        #print(f"{location_one} is Snowy ⛄️!")
                     elif api_data_one["weather"][0]["main"] == "Thunderstorm" and api_data_two["weather"][0]["main"]  != "Thunderstorm" or "Snow" or "Drizzle" or "Rain" or "Clouds" or "Clear":
                         print(f"The weather of {location_one} is better than the weather of {location_two}.")
                         print(f"The weather is condition", api_data_one['weather'][0]['description'])
                         print ("----------------------------------------------------------------")
-                        #print(f"{location_one} is Thunderstromy 🌩️!")
                     else:
                         print(f"The weather of {location_two} is better than the weather of {location_one}.")
                         print(f"The weather condition is", api_data_two['weather'][0]['description'])
@@ -160,7 +147,7 @@ if __name__ == "__main__":
     print("You can check the current and forecast weather of your choice city.")
     print("You can also compare the current weather of 2 locations.")
     print("-------------------------------------------------------------------\n\n")
-    sleep(1)
+    sleep(2)
     user_selection()
 
 

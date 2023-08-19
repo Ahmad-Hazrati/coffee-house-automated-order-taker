@@ -15,8 +15,8 @@ CLEAR = range(800, 801)
 CLOUDY = range(801, 900)
 
 #Request for user input
-#location_one = input("Enter the 1st city name: ")
-#location_two = input("Enter the 2nd city name: ")
+#location_one = input("Enter the 1st city name: \n")
+#location_two = input("Enter the 2nd city name: \n")
 
 
 
@@ -103,7 +103,7 @@ def display_weather_info_location_two(api_data_two, location_two):
     print ("Current weather descrip :",weather_symbol_two)
     print ("Current Humidity is     :",humidity_two, '%')
     print ("Current wind speed is   :",wind_spd_two ,'kmph')
-    print ("----------------------------------------------------------------")
+    print ("----------------------------------------------------------------\n")
 
 # display_weather_info_location_one(api_data_one, location_one)
 # display_weather_info_location_two(api_data_two, location_two)

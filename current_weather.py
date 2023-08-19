@@ -1,5 +1,7 @@
 # Required libraries
+import requests
 from datetime import datetime
+from time import sleep
 import creds
 from art import *
 
@@ -14,7 +16,7 @@ CLEAR = range(800, 801)
 CLOUDY = range(801, 900)
 
 #Request for user input
-#location = input("Enter the city name: ")
+#location = input("Enter the city name: \n")
 
 #Weather url
 #complete_api_link = "https://api.openweathermap.org/data/2.5/weather?q="+location+"&appid="+creds.user_api
