@@ -115,8 +115,8 @@ The objective of the site is to allow users to check the current and next 5 days
   ![feedback-table-and-options](views/README_files/menu_options.png)<br><br>
 
 ### Features Left to Implement
-- My initial thoughts regarding the ASCII weather icons was for them to be multicoloured. However I felt that the time required to investigate the feasibilty and implement this visual feature was not worth the effort giving no real functional difference.
-
+- Initially, the idea was to present the historical weather data of European countries' capital based on the user date choice. But due to limitation of OpenWeathers API daily data request and time couldn't implemented.
+<br><br>
 <a href="#contents">BACK TO CONTENTS 🔼</a>
 
 ## Technologies Used
