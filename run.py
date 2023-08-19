@@ -1,7 +1,8 @@
 #Import functions from other python files
 from current_weather import display_current_weather_info
 from forecast_weather import display_forecast_weather_info
-from weather_comparison import display_weather_info_location_one, display_weather_info_location_two
+from weather_comparison import display_weather_info_location_one
+from weather_comparison import display_weather_info_location_two
 
 #Import libraries
 import sys
@@ -140,8 +141,6 @@ def user_selection():
         else:
             choice = -1
         return
-
-
     
 
 if __name__ == "__main__":

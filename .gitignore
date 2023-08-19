@@ -8,5 +8,3 @@ node_modules/
 .github/
 .venv
 api_key.py
-
-
