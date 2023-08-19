@@ -1,5 +1,4 @@
 # Required libraries
-import requests
 from datetime import datetime
 import creds
 from art import *
@@ -44,7 +43,6 @@ def select_weather_display_params(weather_id):
     else:  
         display_params = "🌈"
     return display_params
-
 
 
 def display_current_weather_info(api_data, location):

@@ -15,19 +15,19 @@ CLEAR = range(800, 801)
 CLOUDY = range(801, 900)
 
 #Request for user input
-location_one = input("Enter the 1st city name: ")
-location_two = input("Enter the 2nd city name: ")
+#location_one = input("Enter the 1st city name: ")
+#location_two = input("Enter the 2nd city name: ")
 
 
 
 #Weather url
-complete_api_link_location_one = "https://api.openweathermap.org/data/2.5/weather?q="+location_one+"&appid="+creds.user_api
-complete_api_link_location_two = "https://api.openweathermap.org/data/2.5/weather?q="+location_two+"&appid="+creds.user_api
-api_link_one = requests.get(complete_api_link_location_one)
-api_link_two = requests.get(complete_api_link_location_two)
+# complete_api_link_location_one = "https://api.openweathermap.org/data/2.5/weather?q="+location_one+"&appid="+creds.user_api
+# complete_api_link_location_two = "https://api.openweathermap.org/data/2.5/weather?q="+location_two+"&appid="+creds.user_api
+# api_link_one = requests.get(complete_api_link_location_one)
+# api_link_two = requests.get(complete_api_link_location_two)
 
-api_data_one = api_link_one.json()
-api_data_two = api_link_two.json()
+# api_data_one = api_link_one.json()
+# api_data_two = api_link_two.json()
 
 def select_weather_display_params(weather_id):
     """
@@ -105,8 +105,8 @@ def display_weather_info_location_two(api_data_two, location_two):
     print ("Current wind speed is   :",wind_spd_two ,'kmph')
     print ("----------------------------------------------------------------")
 
-display_weather_info_location_one(api_data_one, location_one)
-display_weather_info_location_two(api_data_two, location_two)
+# display_weather_info_location_one(api_data_one, location_one)
+# display_weather_info_location_two(api_data_two, location_two)
 
 
 def weather_comparison(location_one, location_two):
@@ -152,4 +152,4 @@ def weather_comparison(location_one, location_two):
             
             
     
-print(weather_comparison(location_one, location_two))
+#print(weather_comparison(location_one, location_two))
