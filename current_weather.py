@@ -1,8 +1,5 @@
 # Required libraries
-import requests
 from datetime import datetime
-from time import sleep
-import creds
 from art import *
 
 # Weather Condition Codes

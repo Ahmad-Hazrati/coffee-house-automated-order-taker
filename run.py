@@ -1,16 +1,18 @@
-
+#Import functions from other python files
 from current_weather import display_current_weather_info
 from forecast_weather import display_forecast_weather_info
 from weather_comparison import display_weather_info_location_one, display_weather_info_location_two
+
+#Import libraries
 import sys
 import requests
 from simple_term_menu import TerminalMenu
 from time import sleep
 from os import system
+import os
 from art import *
-import creds
+import api_key
  
-
 
 def get_user_input():
     """
@@ -50,6 +52,8 @@ main_menu = TerminalMenu(options, title="Select your option")
 sub_options = ["Main Menu", "Quit"]
 sub_menu = TerminalMenu(sub_options, title="Please select to go to Main Page or Exit")
 
+API_KEY = os.getenv('API_KEY')
+
 def user_selection():
     """
     Display user with choices to select and then run the relevant functions.
@@ -61,7 +65,7 @@ def user_selection():
         elif options[choice] == "Current Weather":
             system('clear')
             location= get_user_input()                   
-            complete_api_link = "https://api.openweathermap.org/data/2.5/weather?q="+location+"&appid="+creds.user_api
+            complete_api_link = "https://api.openweathermap.org/data/2.5/weather?q="+location+"&appid="+api_key.user_api
             api_link = requests.get(complete_api_link, timeout=5)
             api_data = api_link.json()
             display_current_weather_info(api_data, location)
@@ -71,7 +75,7 @@ def user_selection():
         elif options[choice] == "Forecast Weather":
             system('clear')
             location = get_user_input()
-            complete_api_link = "https://api.openweathermap.org/data/2.5/forecast?q="+location+"&appid="+creds.user_api
+            complete_api_link = "https://api.openweathermap.org/data/2.5/forecast?q="+location+"&appid="+api_key.user_api
             api_link = requests.get(complete_api_link, timeout=5)
             api_data = api_link.json()
             display_forecast_weather_info(api_data, location)
@@ -82,16 +86,16 @@ def user_selection():
             system('clear')
             location_one = get_user_input()
             location_two = get_user_input()
-            complete_api_link_location_one = "https://api.openweathermap.org/data/2.5/weather?q="+location_one+"&appid="+creds.user_api
-            complete_api_link_location_two = "https://api.openweathermap.org/data/2.5/weather?q="+location_two+"&appid="+creds.user_api
+            complete_api_link_location_one = "https://api.openweathermap.org/data/2.5/weather?q="+location_one+"&appid="+api_key.user_api
+            complete_api_link_location_two = "https://api.openweathermap.org/data/2.5/weather?q="+location_two+"&appid="+api_key.user_api
             api_link_one = requests.get(complete_api_link_location_one)
             api_link_two = requests.get(complete_api_link_location_two)
             api_data_one = api_link_one.json()
             api_data_two = api_link_two.json()
             display_weather_info_location_one(api_data_one, location_one)
-            sleep(2)
+            sleep(1)
             display_weather_info_location_two(api_data_two, location_two)
-            sleep(2)
+            sleep(1)
             def weather_comparison(location_one, location_two):
                 """
                 Compare the weather of 2 different cities and print the output.

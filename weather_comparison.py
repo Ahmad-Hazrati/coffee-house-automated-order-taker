@@ -1,7 +1,7 @@
 # Required libraries
 import requests
 from datetime import datetime
-import creds
+import api_key
 from art import *
 
 # Weather Condition Codes
