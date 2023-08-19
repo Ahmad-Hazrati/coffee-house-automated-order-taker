@@ -51,7 +51,7 @@ The objective of the site is to allow users to check the current and next 5 days
 #### User Stories
 - User Goals:
   - To check the current weather of a location / city.
-  - To check the next 5 days weather forecast for any geographical location/ citiy. 
+  - To check the next 5 days weather forecast for any geographical location/ city. 
   - To see the weather condition comparison result of 2 different locations/ cities.
 <br><br>
 - Site Administrator Goals:
@@ -147,98 +147,82 @@ The objective of the site is to allow users to check the current and next 5 days
 ### Development Testing
 
 - __Starting Options__
-  - The app started successfully using the Run Program button with the title ANSI graphic title text being presented followed by the main menu.
-  - Entering 1 or 2 directed the user to the correct section of the app.  
-  - Various errors were purposefully entered into the terminal to check the app response as detailed below:
-    - *Non-integer entry*: a variety of non-integer entries were made with the expected response detailed below: ![non-integer-error](views/README-files/invalid-entry-non-integer.png) The message remained on screen for 3 seconds at which point the main menu reappears to allow the user to try again.
-    - *Invalid number*: a variety of integers other than 1 or 2 were inputed with the expected response detailed below: ![invalid-number](views/README-files/invalid-number-main-menu.png)<br> The message persisted as detailed in error above for same period before returning to main menu..
+  - The app started successfully using the Run Program button with the title formated with art library and font "cybermedium" and with 2 lines text describing the app's purpose. Subsequently followed by the main menu options.
+  - Select "Current Weather" or "Forecast Weather", or "Weather Comparison" or "Exit§ option to direct to the relevant section.
     <br><br>
-- __Past Weather__
-  - The past weather date entry page loaded successfully giving the user the information required and the correct prompt to enter the selected date.
-  - When a valid date is entered, the screen cleared and the past weather was displayed as expected. ![past-weather](views/README-files/past-weather.gif)
-  - The four user options menu was presented with each one working satisfactorily. 
+- __Current Weather__
+  - The current weather page loaded successfully prompting the user for input. 
+  - When the input is correct, the current weather is displayed. 
+  - The sub-menu option is presented afterwards with each one working satisfactorily. 
   - Various errors were purposefully entered into the terminal to check the app response as detailed below:
-    - *Incorrect date format*: a variety of non-date related strings and characters were entered into the terminal with the expected response detailed below: ![date-validation-error](views/README-files/date-validation-message.png) The message remained on screen for 3 seconds at which point the Past Weather date entry page reappears to allow user to try and enter a date again.
-    - *Date out of range*: a date outwith the data range contained in the Google Sheet was entered. The loading screen was presented allowing the program to check the date given lies within the archive data range. As expected, the program presented the user with the following error message:![date-out-of-range-error](views/README-files/date-out-of-range-message.png) As in the message above, it remained on screen for 3 seconds before returning to the Past Weather date entry page.
-- __Weather Forecast__
-  - The forecast weather coordinate entry page loaded successfully giving the user the information required and the correct prompt to enter the required latitude and longitude. 
-  - On receipt of valid coordinates, the app presented todays forecast in the expected manner and format. 
-  - Hitting enter when prompted progressed the app through tomorrows and day after tomorrows forecasts, both of which presented as expected.
-  - At the end of the day after tomorrows forecast, the five user options menu was presented with each one working satisfactorily. 
-  - The 3 day summary option was selected and presented back the 3 forecasts in the correct format.
-  - Coordinates were entered for my home, Edinburgh and Toronto with the corresponding weather forecasts cross checked. Each one was a close aproximation of that provided by iOS.
-  - Storm Biparjoy - at time of writing in the Indian Ocean - was used to test the wind information in the forecast, comparing with current windspeed returned from [Earth NullSchool.](https://earth.nullschool.net/)
-  ![storm-windspeed](views/README-files/storm-nullschool.png)
-  ![wind-speed-gif](views/README-files/storm-wind-speed.gif)
-  - Various errors were purposefully entered into the terminal or manaully created to check the app response as detailed below:
-    - *Single entry*: a single entry was made in the terminal which correctly resulted in the error message below: ![single-entry-error](views/README-files/one-entry-weather-forecast.png) The message remained on screen for 3.5 seconds (longer than normal due to length of string) at which point the Weather Forecast coordinate entry page reappears to allow user to try and enter coordinates again.
-    - *Too many entries*: three numbers were entered which resulted in the error message below: ![too-many-entries-error](views/README-files/too-many-entries-message.png) The message persisted for 3.5 seconds before returning to the coordinate entry page.
-    - *Latitude out of range*: a latitude was entered which was not within the acceptable range of -90 to 90 resulting in the error message below: ![incorrect latitude-error](views/README-files/incorrect-latitude-message.png) The message persisted for 3 seconds before returning to the coordinate entry page.
-    - *Longitude out of range*: a longitude was entered which was not within the acceptable range of -180 to 180 resulting in the error message below: ![incorrect longitude-error](views/README-files/incorrect-longitude-message.png) The message persisted for 3 seconds before returning to the coordinate entry page.
-    - *API errors*: a single digit was deleted from the API key config var in Heroku to simulate an error returned from the API which generated the message below: ![api-error](views/README-files/invalid-api-message.png) The message persisted for 3 seconds however in this instance, the user menu was made available as the user may want to navigate away from the Weather Forecast, given that the error came from the API so may be a time bound issue on the providers side.
-
-- __Feedback__
-  - Entering name and feedback created a new entry in the feedback worksheet, along with a date for the feedback.
-  - An empty name input returned the string *anonymous* as expected.
-  - When the feedback was left blank, an attention message was presented to the user with an option to leave feedback reappearing shortly afterward. ![feedback-attention-message](views/README-files/feedback-attention-message.png)
-  - The data was then read back from the worksheet and presented to the user in a table as expected.
-  ![create-read-feedback](views/README-files/create-and-read.gif)<br><br>
-  - The user options were presented and updating the spreadsheet was tested successfully. ![update-feedback](views/README-files/update.gif)
-  - The delete option was also tested and worked as expected, presenting a message before returning to the main menu. ![delete-feedback](views/README-files/delete.gif)
-  - The confirm option was also tested which presented the thank you message and returned the program to the main menu. ![confirm-feedback](views/README-files/confirm-feedback.gif)
-
+  - *Non-alphabet / letter entry*: a variety of non-letter entries were made with the expected response detailed below: ![Invalid Input](views/README_files/invalid_input.png).
+    A while loop is run to reprompt the user until enters the valid input.
+   <br><br>
+- __Forecast Weather__
+  - - The forecast weather page loaded successfully prompting the user for input. 
+  - When the input is correct, the forecast weather is displayed. 
+  - The sub-menu option is presented afterwards with each one working satisfactorily. 
+  - Various errors were purposefully entered into the terminal to check the app response as detailed below:
+  - *Non-alphabet / letter entry*: a variety of non-letter entries were made with the expected response detailed below: ![Invalid Input](views/README_files/invalid_input.png).
+    A while loop is run to reprompt the user until enters the valid input.
+   <br><br>
+- __Weather Comparison__
+   - The weather comparison page loaded successfully prompting the user for inputs. 
+  - When the inputs are correct, the weather information is displayed with the result of compared weather conditions. 
+  - The sub-menu option is presented afterwards with each one working satisfactorily. 
+  - Various errors were purposefully entered into the terminal to check the app response as detailed below:
+  - *Non-alphabet / letter entry*: a variety of non-letter entries were made with the expected response detailed below: ![Invalid Input](views/README_files/invalid_input.png).
+    A while loop is run to reprompt the user until enters the valid input.
+   <br><br>
 - __User Options__
-  - The two User Options formats - 4 choice and 5 choice - were both presented at the appropriate time: past weather and weather forecast respectively.
+  - The two User Options formats - main menu and and sub-menu - were both presented at the appropriate time: current weather, forecast weather, and weather comparison respectively.
   - Each option was selected to confirm direction to the appropriate part of the app.
 
 ### Testing User Stories
 #### User Goals
-- **To access the historical weather for a selected date at Dublin airport.**
-  - The app prompts the user to enter a chosen date to access the data. 
+- **To check the current weather of a location / city.**
+  - The app prompts the user to enter the name of any geographical location / city to display the current weather condition. 
   - The app then presents the data back to the user, fulfilling the requirements of this user goal.
 
-- **To access a 3 day weather forecast for a given location.**
+- **To check the next 5 days weather forecast for any geographical location/ city.**
 
-  - The user is prompted to enter a latitude and longitude at the appropriate time.
-  - The user is then presented with a series of forecasts, achieving the objective of this goal.
+  - The user is prompted to enter the name of any geographical location / city to display the forecast weather for next 5 days. 
+  - The user is then presented with the 5 days forecasts weather, achieving the objective of this goal.
 
-- **To be able to leave feedback on the app.**
+- **To see the weather condition comparison result of 2 different locations/ cities.**
 
-  - The user is provided an option to leave feedback at the end of either the past weather or weather forecast sections.
-  - The feedback persists in a Google Spreadsheet. 
+  - The user is prompted to enter the names of any geographical locations / cities to display the weather condition with a compared weather condition result. 
+  - The user is then presented with the output, fulfilling this goal.
 
 #### Site Administrator Goals
-  - **To give users the options to access historical weather, weather forecasts and have the option to create, read, update and delete (CRUD) feedback from the terminal.**
+  - **To give users the options to check current weather, weather forecasts and weather comparison result of 2 different locations / cities from the terminal.**
 
-    - The user can access historical weather from the historical-weather-data Google Sheet, return a weather forecast for a given location via Open Weather API and is able to Create, Read, Update and Delete the feedback data using terminal commands.
-  - **To present data in as colourful a format as possible within the constraints of the terminal.**
+    - The user can access current weather, forecast weather and weather comparison result data via via Open Weather API.
 
-    - The termcolor library was utilised to apply colorised formatting to terminal outputs, making key information stand out to the user.
-  - **To create an application using Python with clean, resuable and commented code, utilising atomic functionality and OOP where appropriate.**
+  - **To give users the ability to navigate through options back and forth easily.**
 
+    - The menu and sub-menu options allows the user to go back and forth and experience different sections of the app.
+
+  - **To present data in more user friendly format as possible within the constraints of the terminal.**
+
+    - The font format, menu options, display data with a break of 1-2 seconds and validating the user inputs are some of the measures in this regard.
+
+    - **To create an application using Python with clean, resuable and commented code, utilising different functions and libraries.**
+
+    - code has been broken into discrete files to try and group together code in an ordered manner that seeks to follow the flow of the program.
     - The code has been broken into discrete files to try and group together code in an ordered manner that seeks to follow the flow of the program.
-    - OOP was utilised for actions or events where properties and methods are required. In the case of the Weather Forecast, OOP would enable scaling up to more forecast days or adding functionality from currently unused API data.
-    - The functions have been written in a way such that they are atomic and perform discrete operations. The main.py file has many examples of function calls in order to create the end result.
+    - The functions have been written in a way such that they are atomic and perform discrete operations. The fun.py file has many examples of function calls in order to create the end result.
     - Code is commented throughout to provide future proofing and all functions are annotated with a docstring.
+
   - **To handle any potential errors appropriately and consistently.**
 
     - Throughout the app there are multiple points where error handling is required. This is achieved through try/except in most cases along with if/else statements. 
-    - The error handling messages all have the same formatting to provide consistency.
+
   - **To keep security sensitive information hidden.**
 
     - The Open Weather API key is stored as an environment variable in Heroku project config vars and testing API key added to gitignore file.
-    - Google Sheets access requirements contained in the creds.json file also added to gitignore file. The json file is also stored as a config var in Heroku.
 
 ### Validator Testing 
-
-- HTML
-  - No errors or warnings were returned for the page when passing through the official W3C HTML validator:
-    ![HTML Validator Results](views/README-files/w3-html-validator-results.png)<br><br> 
-    
-- CSS
-  - No errors were returned for the page when passing through the official W3C CSS validator:
-    ![CSS Validator Results](/views/README-files/w3-css-validator-results.png) 
-    There were two warnings returned, both linked to code that existed from the CI template.<br><br>
 
 - Python
   - Each Python file was passed through the Code Institute Linter. The initial results are detailed [here.](views/README-files/linter-results.pdf) After refactoring, the code was passed through the linter again and the results are shown below.
@@ -262,9 +246,9 @@ The objective of the site is to allow users to check the current and next 5 days
   - The title and button colour contrasts were checked using Web AIM contrast checker.
   ![Contrast Check](views/README-files/web-aim-contrast-checker.png)
   <br><br>
-
  
 <a href="#contents">BACK TO CONTENTS 🔼</a>
+
 ### Bugs / Issues
 
 <table  width = 100% cellspacing="0" cellpadding="0">
