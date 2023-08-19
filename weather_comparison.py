@@ -109,46 +109,46 @@ def display_weather_info_location_two(api_data_two, location_two):
 # display_weather_info_location_two(api_data_two, location_two)
 
 
-def weather_comparison(location_one, location_two):
-    if api_data_one["weather"][0]["main"] == api_data_two["weather"][0]["main"]:
-        print (f"The weather of {location_one} and {location_two} are same.")
-        print(f"The weather condition of both cities are", api_data_one['weather'][0]['description'])
-        print ("----------------------------------------------------------------")
-    else:    
-        if api_data_one["weather"][0]["main"] == "Clear" and api_data_two["weather"][0]["main"] != "Clear":
-            print(f"The weather of {location_one} is better than the weather of {location_two}.")
-            print(f"The weather condition is", api_data_one['weather'][0]['description'])
-            print ("----------------------------------------------------------------")
-            #print(f"{location_one}, is sunny ☀️!")
-        elif api_data_one["weather"][0]["main"] == "Clouds" and api_data_two["weather"][0]["main"] != "Clouds" or "Clear":
-            print(f"The weather of {location_one} is better than the weather of {location_two}.")
-            print(f"The weather condition is", api_data_one['weather'][0]['description'])
-            print ("----------------------------------------------------------------")
-            #print(f"{location_one}, is cloudy ☁️!")
-        elif api_data_one["weather"][0]["main"] == "Rain" and api_data_two["weather"][0]["main"] != "Rain" or "Clouds" or "Clear":
-            print(f"The weather of {location_one} is better than the weather of {location_two}.")
-            print(f"The weather condition is", api_data_one['weather'][0]['description'])
-            print ("----------------------------------------------------------------")
-            #print(f"{location_one}, is rainy 🌦️!")
-        elif api_data_one["weather"][0]["main"] == "Drizzle" and api_data_two["weather"][0]["main"]  != "Drizzle" or "Rain" or "Clouds" or "Clear":
-            print(f"The weather of {location_one} is better than the weather of {location_two}.")
-            print(f"The weather condition is", api_data_one['weather'][0]['description'])
-            print ("----------------------------------------------------------------")
-            #print(f"{location_one} is drizzle 🌧️!")
-        elif api_data_one["weather"][0]["main"] == "Snow" and api_data_two["weather"][0]["main"]  != "Snow" or "Drizzle" or "Rain" or "Clouds" or "Clear":
-            print(f"The weather of {location_one} is better than the weather of {location_two}.")
-            print(f"The weather condition is", api_data_one['weather'][0]['description'])
-            print ("----------------------------------------------------------------")
-            #print(f"{location_one} is Snowy ⛄️!")
-        elif api_data_one["weather"][0]["main"] == "Thunderstorm" and api_data_two["weather"][0]["main"]  != "Thunderstorm" or "Snow" or "Drizzle" or "Rain" or "Clouds" or "Clear":
-            print(f"The weather of {location_one} is better than the weather of {location_two}.")
-            print(f"The weather is condition", api_data_one['weather'][0]['description'])
-            print ("----------------------------------------------------------------")
-            #print(f"{location_one} is Thunderstromy 🌩️!")
-        else:
-            print(f"The weather of {location_two} is better than the weather of {location_one}.")
-            print(f"The weather condition is", api_data_two['weather'][0]['description'])
-            print ("----------------------------------------------------------------")
+# def weather_comparison(location_one, location_two):
+#     if api_data_one["weather"][0]["main"] == api_data_two["weather"][0]["main"]:
+#         print (f"The weather of {location_one} and {location_two} are same.")
+#         print(f"The weather condition of both cities are", api_data_one['weather'][0]['description'])
+#         print ("----------------------------------------------------------------")
+#     else:    
+#         if api_data_one["weather"][0]["main"] == "Clear" and api_data_two["weather"][0]["main"] != "Clear":
+#             print(f"The weather of {location_one} is better than the weather of {location_two}.")
+#             print(f"The weather condition is", api_data_one['weather'][0]['description'])
+#             print ("----------------------------------------------------------------")
+#             #print(f"{location_one}, is sunny ☀️!")
+#         elif api_data_one["weather"][0]["main"] == "Clouds" and api_data_two["weather"][0]["main"] != "Clouds" or "Clear":
+#             print(f"The weather of {location_one} is better than the weather of {location_two}.")
+#             print(f"The weather condition is", api_data_one['weather'][0]['description'])
+#             print ("----------------------------------------------------------------")
+#             #print(f"{location_one}, is cloudy ☁️!")
+#         elif api_data_one["weather"][0]["main"] == "Rain" and api_data_two["weather"][0]["main"] != "Rain" or "Clouds" or "Clear":
+#             print(f"The weather of {location_one} is better than the weather of {location_two}.")
+#             print(f"The weather condition is", api_data_one['weather'][0]['description'])
+#             print ("----------------------------------------------------------------")
+#             #print(f"{location_one}, is rainy 🌦️!")
+#         elif api_data_one["weather"][0]["main"] == "Drizzle" and api_data_two["weather"][0]["main"]  != "Drizzle" or "Rain" or "Clouds" or "Clear":
+#             print(f"The weather of {location_one} is better than the weather of {location_two}.")
+#             print(f"The weather condition is", api_data_one['weather'][0]['description'])
+#             print ("----------------------------------------------------------------")
+#             #print(f"{location_one} is drizzle 🌧️!")
+#         elif api_data_one["weather"][0]["main"] == "Snow" and api_data_two["weather"][0]["main"]  != "Snow" or "Drizzle" or "Rain" or "Clouds" or "Clear":
+#             print(f"The weather of {location_one} is better than the weather of {location_two}.")
+#             print(f"The weather condition is", api_data_one['weather'][0]['description'])
+#             print ("----------------------------------------------------------------")
+#             #print(f"{location_one} is Snowy ⛄️!")
+#         elif api_data_one["weather"][0]["main"] == "Thunderstorm" and api_data_two["weather"][0]["main"]  != "Thunderstorm" or "Snow" or "Drizzle" or "Rain" or "Clouds" or "Clear":
+#             print(f"The weather of {location_one} is better than the weather of {location_two}.")
+#             print(f"The weather is condition", api_data_one['weather'][0]['description'])
+#             print ("----------------------------------------------------------------")
+#             #print(f"{location_one} is Thunderstromy 🌩️!")
+#         else:
+#             print(f"The weather of {location_two} is better than the weather of {location_one}.")
+#             print(f"The weather condition is", api_data_two['weather'][0]['description'])
+#             print ("----------------------------------------------------------------")
             
             
     
