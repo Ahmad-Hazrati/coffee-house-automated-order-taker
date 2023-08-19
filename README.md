@@ -70,7 +70,7 @@ The objective of the site is to allow users to check the current and next 5 days
 #### Optional Content
 - The app contains an introductory page containing app title, purpose and menu options.
 ### Structure
-- The structure of the app was defined and mapped out on a [flow chart](views/README_files/). This helped define the required interactions to develop a usuable app.
+- The structure of the app was defined and mapped out on a [Flowchart](views/README_files/). This helped define the required interactions to develop a usuable app.
 - The structure of the weather data fetching in to the app is done through API link. 
 ### Skeleton
 #### Wireframes
@@ -88,28 +88,31 @@ The objective of the site is to allow users to check the current and next 5 days
 ### Existing Features
 
 - __Starting App__ 
-  - When the app first runs, a text art title appears followed by a 2 option main menu to either access past weather or run a weather forecast. ![app-start](views/README-files/app-start.gif)<br><br>
-- __Past Weather__ 
-  - The past weather section starts with a series of informative statements and prompts ending with a user input requesting a date entry.
-  ![past-weather](views/README-files/past-weather-date-entry.png)
-  - On entering a correctly formatted and in range date
-  a series of statements are printed out in readable language with the data obtained or calculated from the Google Sheet formatted in bold blue.
-![past-weather-outcome](views/README-files/past-weather-result.png) 
-  - After a short delay, a menu with four options is presented to allow the user to navigate elsewhere in the app or back to beginning of past weather.
-![four-options](views/README-files/user-options-four.png) 
+  - When the app loads, a text art title appears followed by by 2 line text describing the purpose of the app. Subsequently main menu options appear to provide the user four options.
+  - Each step is displayed with a delay of one second to add value to the user experience.
+  ![App Start](views/README_files/app_start.png)<br><br>
+- __Current Weather__ 
+  - The current weather section starts with prompting the user to enter the name of a location / city and ends with displaying the result and sub menu options.
+  - The user input is validated to be only alphabet / letters.
+  ![Current Weather](views/README_files/current_weather.png)
  <br><br>
-- __Weather Forecast__ 
-  - The weather forecast section commences with a series of statements and prompts ending with a user input requesting entry of coordinates separated by a space. ![forecast-weather](views/README-files/weather-forecast-coord-entry.png)
-  - On input of correct data, todays forecast begins which consists of a title screen followed by feedback on location and date of forecast. This is then followed by weather icon with conditions underneath before a series of readable language statements is presented with the data obtained or calculated from the Open Weather API formatted in bold blue. ![weather-forecast](views/README-files/weather-forecast-today.gif)
-  - After a delay, a prompt to hit enter to see the next days forecast is presented to the user. Hitting enter runs tomorrows forecast which is identical in format to the process above with exception of the title screen. 
-  - At the end of tomorrows forecast the user is again requested to hit enter which then returns the day after tomorrows forecast. The format is again identical to the previous two forecasts with the exception of the title screen.
-  - At the end of the day after tomorrows forecast, the user options menu is presented with the same options as described in the past weather features section and an additional option to see a three day summary.![five-options](views/README-files/user-options-five.png)
-  - Selecting option five returns a tabulated summary of the three forecast days followed by a propmt to hit enter to access user options. Doing so returns the four option menu previously described.![three-day-summary](views/README-files/three-day-summary.png)<br><br>
-
-- __Feedback__ 
-  - The feedback section allows users to enter their name and any feedback they have on the app. Once these details are created on the feedback worksheet of the historical-weather-data sheet they are repeated back to the user in a tabulated format.
+- __Forecast Weather__ 
+  - The forecast weather section starts with prompting the user to enter the name of a location / city and ends with displaying the result and sub menu options.
+  - The 5 days forecast weather will display with delay of 2 seconds to give the user the chance to glance over the data.
+  - The user input is validated to be only alphabet / letters.
+  ![Forecast Weather](views/README_files/forecast_weather.png)
+ <br><br>
+- __Weather Comparison__ 
+  - The weather comparison section starts with prompting the user to enter the names of 2 different location / cities and ends with displaying the weather comparison result based on weather condition and sub menu options.
+  - The user inputs are validated to be only alphabet / letters.
+  ![Weather Comparison](views/README_files/weather_comparison.png.png)
+ <br><br>
+ 
+- __Menu Options__ 
+  - The menu options provide the users with the ability to go to the main app page or quit the app.
+  _ The up and down selection option give the user more convenient way to select the exact option and eliminates the incorrect input by the user.
   - There also appears an options menu beneath where the user can select to change their name, change their feedback, confirm they are happy with the feedback or delete it altogher.
-  ![feedback-table-and-options](views/README-files/feedback-table-and-options.png)<br><br>
+  ![feedback-table-and-options](views/README_files/menu_options.png)<br><br>
 
 ### Features Left to Implement
 - My initial thoughts regarding the ASCII weather icons was for them to be multicoloured. However I felt that the time required to investigate the feasibilty and implement this visual feature was not worth the effort giving no real functional difference.
