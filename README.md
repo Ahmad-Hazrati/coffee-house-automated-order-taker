@@ -64,41 +64,23 @@ The objective of the site is to allow users to check the current and next 5 days
 
 ### Scope
 #### Essential Content
- - The app will allow users to enter a date and receive the weather for that given day.
- - The app will allow users to enter latitude and longitude coordinates to obtain a weather forecast for that location. 
+ - The app will allow users to enter a location / city name and get the current weather information with a user friendly format.
+ - The app will allow users to enter a location / city name and get the next 5 days weather information with a user friendly format.
+  - The app will allow users to enter 2 different locations / cities and get the compared weather information result. 
 #### Optional Content
-- A feedback option where users can leave their feedback on the app.
+- The app contains an introductory page containing app title, purpose and menu options.
 ### Structure
-- The structure of the app was defined and mapped out on a [flow chart](views/README-files/flowchart.png). This helped define the required interactions to develop a usuable product.
-- The structure of the data feeding into the historical or past weather of the app is via a Google Sheet called historical-weather-data.
+- The structure of the app was defined and mapped out on a [flow chart](views/README_files/). This helped define the required interactions to develop a usuable app.
+- The structure of the weather data fetching in to the app is done through API link. 
 ### Skeleton
 #### Wireframes
-- The project wireframe can be found [here.](views/README-files/project-portfolio-three-wireframes.pdf)
+- The project wireframe can be found [here.](views/README_files/wireframe.png)
 ### Surface (Design)
-#### Colour Scheme
-- The Termcolor library was used, providing *"ANSI color formatting for output in terminal"*.
-- The availalble colours are limited however the following colour schemes were used for specific terminal outputs throughout the program:
-  - **Errors**: errors (invalid entries, exceptions etc.) are formatted with bold white writing on a red background.<br><br>![Error Message](views/README-files/error-message-formatting.png)
-  - **Information**: information that the user should know before taking an action formatted as bold green.<br><br> ![Information Message](views/README-files/information-message-formatting.png)
-  - **Data**: pertinent data points either sourced/calculated from Google Sheets or Open Weather API are formatted as bold blue.<br><br> ![Data Message](views/README-files/data-message-formatting.png)
-  - **Feedback**: a message to request the user does not leave the feedback message empty in bold magenta. Although this could be deemed an app error, I felt that the white on red would be too forceful to request feedback is entered. <br><br>![Feedback Message](views/README-files/feedback-message-formatting.png)
-- There are a series of screens using text art to depict titles or loading information. Different colours were selected for each one to differentiate them from the others.
-  - **Title**: Displayed when the program first runs.![Title Screen](views/README-files/title-screen.png)
-  - **Loading**: Displayed when the program is loading data that may take time to load.<br><br>
-  ![Loading Screen](views/README-files/loading-screen.gif)
-  - **Forecast Days**: Displayed when the program is about to display the weather for a given forecast day.![Day One](views/README-files/forecast-one.png) ![Day Two](views/README-files/forecast-two.png) ![Day Three](views/README-files/forecast-three.png)
-- The two colours used for the title and button were selected from the background picture using the colour pallette dropper in keynote. The yellow *(Ronchi)* and dark blue *(Big Stone)* contrast each other well and are reminiscent of the weather types exhibited in the image.
-![Colour Pallett](views/README-files/color-pallette.png)
 #### Imagery
-- The background image, sourced from [Pexels](https://www.pexels.com/), was selected for exhibiting a number of different weather types in one image.
-![Background Image](views/README-files/background-picture.webp)
-- Two weather icon images were sourced from [Favicon.io](https://favicon.io/) to bookend the main title.<br><br>
-<img src="views/images/title-icon-bolt.png"  width="200" height="200"> <img src="views/images/title-icon-sun.png"  width="200" height="200">
-
-#### Favicon
-- The Favicon logo is the lightning bolt image described above.
+- The emojis are used as weather symbol to describe the weather condition and are taken from [Pilliapp](https://www.piliapp.com/emoji/list/weather/).
+![Weather Symbol](views/README_files/emojis.png)
 #### Typography
-- The title font was sourced from Google Fonts and is called Merriweather. This was selected purely on the presence of weather in the name and was seen as a good link back to the purpose of the app.<br><br>
+- The python art library is used to for the Titles style.<br><br>
 <a href="#contents">BACK TO CONTENTS 🔼</a>
 
 ## Features 
