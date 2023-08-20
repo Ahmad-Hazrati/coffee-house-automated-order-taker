@@ -13,7 +13,6 @@ from time import sleep
 from os import system
 import os
 from art import *
-
  
 
 def get_user_input():
@@ -27,9 +26,20 @@ def get_user_input():
             location = input("Enter the city name: \n")
             if location.isalpha():
                 break
-        except:
+        except ValueError:
                 pass
         print("Please enter letters only. \n")
+        
+        # try:
+        #     if api_link = requests.get(complete_api_link)
+        #     break
+        # except error.HTTPError as http_error:
+        #     if http_error.code == 401:  # 401 - Unauthorized
+        #         sys.exit("Access denied. Check your API key.")
+        #     elif http_error.code == 404:  # 404 - Not Found
+        #         print("location / city name is incorrect, please retype a correct city name.")
+        #     else:
+        #         print(f"Something went wrong... ({http_error.code})")
     return location
 
 
@@ -46,7 +56,18 @@ def user_sub_selection():
         sys.exit(0)
     return
 
-
+def user_sub_selection():
+    """
+    Function to display sub menu to the user.
+    """
+    choice = sub_menu.show()
+    if sub_options[choice] == "Main Menu":
+        system('clear')
+        tprint("WEATHER\nFORECASTING\n\n")
+        user_selection()
+    elif sub_options[choice] == "Quit":
+        sys.exit(0)
+    return
 
 options = ["Current Weather", "Forecast Weather", "Weather Comparison", "Exit"]
 main_menu = TerminalMenu(options, title="Select your option")
