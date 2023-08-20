@@ -357,38 +357,19 @@ $ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
 
 ## Credits 
 ### Content 
-NOTE: Specific links are included within the Python, HTML, CSS  files. The list below summarises content credits in general.
-- Stack Overflow, W3 Docs and other online resources were a massive help for Python, HTML or CSS code that enabled some of the functionality I was looking for.
-- The past weather data in csv format was obtained from Met Eireann historical archive[here.](https://www.met.ie/climate/available-data/historical-data)
-- Beafort scale used to describe weather from given wind speed. Source in [Wikipedia.](https://en.wikipedia.org/wiki/Beaufort_scale)
-- Cardinal and ordinal wind directions taken from [Windy](https://windy.app/blog/what-is-wind-direction.html).
+NOTE: Specific links are included within the Python files. The list below summarises content credits in general.
+- Thanks to my Code Institute mentor Mr. Aleksei Konovalov for his guidance, insight and the constant confidence boost to help me in the right direction.
+- Code Institute Tutor Assistance, Slack, other online resources and especially the Github of [Johnamdickson](https://github.com/johnamdickson/portfolio-project-3/)
+ were a massive help for Python that enabled some of the functionality I was looking for.
 - Weather codes and corresponding weather conditions from [Open Weather.](https://openweathermap.org/weather-conditions)
-- Information on geographic coordinate system found [here.](https://www.ibm.com/docs/en/db2/11.1?topic=systems-geographic-coordinate)
-- This [website](https://www.scaler.com/topics/multiline-comment-in-python/) gave guidance for making multi-line comments where using `“””` is recommended for docstrings and using `#` for comments.
-- The idea to use the Open Weather API was inspired by the Clima project, taught as part of the London App Brewery's iOS App Development Bootcamp.
-- Deployment information to Heroku derived from PP3 weekly open stand up [example project.](https://github.com/PedroCristo/portfolio_project_3/blob/main/README.md)
-- Background image and other styling from other PP3 weekly open stand up [example project.](https://github.com/useriasminna/american_pizza_order_system)
-- The Love Sandwiches walkthrough project gave much inspiration for my PP3.
-- Thanks to my tutor Gurjot for his advice during the mentoring sessions.
-- Thanks to Steve Doherty and Lewis Dillon for their code review feedback of which I was able to resolve three errors.
+- Deployment information to Heroku is taken from Code Institute [Love Sandwiches - Essentials Project](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+LS101+2021_T1/courseware/293ee9d8ff3542d3b877137ed81b9a5b/e3b664e16366444c8d722c5d8340b340/) and respective guidelines.
+
 ### Media
-- Merriweather font was sourced from Google Fonts.
-- All gifs were generated on [ezgif.com.](https://ezgif.com/video-to-gif)
-- The ASCII weather icons were generated [here](https://asciiart.club/) using icons sourced from [Flaticon](https://www.flaticon.com/). <br>
-  <sub>*A full list of icons used with corresponding links can be found [here](views/README-files/flaticon-links.pdf).*</sub>
-- ASCII title text was generated using this [Text to ASCII Art Generator.](https://patorjk.com/software/taag)
-- ASCII weather forecast icons were generated [here.](
-https://asciiart.club/ )
-- The background image was taken from [Pexels](https://www.pexels.com/photo/island-during-golden-hour-and-upcoming-storm-1118873/). Photo by Johannes Plenio.
-- The colour names were sourced from [Name That Color.](https://chir.ag/projects/name-that-color/)
-- The site colour scheme pallete was generated using the palette creation tool in [Color Hex.](https://www.color-hex.com/) 
-- The title icons were from [Favicon](https://favicon.io/) which in turn sourced them from [Twemoji.](https://twemoji.twitter.com/)
-- Current wind speeds were taken from [Earth Nullschool.](https://earth.nullschool.net/)
-- Storm Biparjoy details obtained from [Accuweather.](https://www.accuweather.com/en/hurricane/indian/biparjoy-2023)
+- The emojis are used as weather symbol to describe the weather condition and are taken from [Pilliapp](https://www.piliapp.com/emoji/list/weather/).
+- The python art library is used to for the Titles style.
+- The simple-terminal-menu is used to create the menu and sub-menu options in the app.
 <br><br>
 <a href="#contents">BACK TO CONTENTS 🔼</a>
-
-
 
 ## Reminders
 
@@ -414,5 +395,3 @@ Connect your GitHub repository and deploy as normal.
 The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
 
 ---
-
-Happy coding!
