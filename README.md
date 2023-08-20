@@ -4,7 +4,7 @@ Weather Forecasting is a command line application that allows the user to check 
 
 This application is showcasing Python coding for Project Portfolio 3 and can be accessed by this [link.](https://weather-past-or-forecast.herokuapp.com/)
 
-![Responsive Mockup Screenshot](views/README-files/am-i-responsive.png)
+![Responsive Mockup Screenshot](views/README_files/mockup.png)
 
 ## Contents
 <a name="contents"></a>
@@ -237,15 +237,7 @@ The objective of the site is to allow users to check the current and next 5 days
     - The run.py file was passed through the linter with no warnings or errors returned.
   ![Run File PEP8 Results](views/README-files/run-file-PEP8-results.png)<br><br>  
     - The weather_forecast.py file was passed through the linter with no warnings or errors returned.
-  ![Weather Forecast PEP8 Results](views/README-files/weatherforecast-file-PEP8-results.png)<br><br>  
-
-- Accessibility
-  - Accessibility of the page was checked using the lighthouse tool in devtools. The results were satisfactory as shown below. 
-     - Desktop results:
-     ![Lighthouse Results](views/README-files/lighthouse-results.png) <br><br>
-  - The title and button colour contrasts were checked using Web AIM contrast checker.
-  ![Contrast Check](views/README-files/web-aim-contrast-checker.png)
-  <br><br>
+  ![Weather Forecast PEP8 Results](views/README-files/weatherforecast-file-PEP8-results.png)<br><br> 
  
 <a href="#contents">BACK TO CONTENTS 🔼</a>
 
@@ -257,7 +249,7 @@ The objective of the site is to allow users to check the current and next 5 days
    <th>Solution</th>
    </tr>
    <tr>
-   <td>Issue with PastWeather class sunshine duration if statement. Converting string to int caused an error due to decimal point as discovered when checking weather for 01/01/2020. </td>
+   <td>Issue with  </td>
    <td>Changed to conversion from string to int, to string to float.</td>
    </tr>
    <tr>
@@ -325,8 +317,8 @@ The objective of the site is to allow users to check the current and next 5 days
 5. Click on the Create App button
 6. The next page is the project’s Deploy Tab. Click on the Settings Tab and scroll down to Config Vars.
 7. Click Reveal Config Vars and enter the following:
-    - Add port into the Key box and 8000 into the Value box and click the Add button.
-    - Enter CREDS into the next available Key box and the Google credentials into the corresponding Value box.
+    - Add "PORT" into the Key box and 8000 into the Value box and click the Add button.
+    - Enter "API_KEY" into the next available Key box and the API_KEY value into the corresponding Value box.
     - Enter API_KEY into the next available Key box and the Open Weather API key into the corresponding Value box.
 8. Next, scroll down to the Buildpack section click Add Buildpack select python and click Save Changes.
 9. Repeat step 8 to add node.js. o Note: The Buildpacks must be in the correct order. If not click and drag them to move into the correct order.
@@ -337,17 +329,9 @@ The objective of the site is to allow users to check the current and next 5 days
 14. Scroll to the bottom of the deploy page and select the preferred deployment type.
 15. Click either Enable Automatic Deploys for automatic deployment when you push updates to Github.
 
-### Forking the GitHub Repository
-
-By forking the GitHub Repository we make a copy of the original repository on our GitHub account to view and/or make changes without affecting the original repository by using the following steps:
-
-1. Log in to GitHub and locate the [GitHub Repository.](https://github.com/johnamdickson/portfolio-project-3)
-2. At the top of the Repository (not top of page) just above the "Settings" Button on the menu, locate the "Fork" Button.
-3. You should now have a copy of the original repository in your GitHub account.
-
 ### Making a Local Clone
 
-1. Log in to GitHub and locate the [GitHub Repository.](https://github.com/johnamdickson/portfolio-project-3)
+1. Log in to GitHub and locate the [GitHub Repository.](https://github.com/Ahmad-Hazrati/weather-forecasting)
 2. Under the repository name, click "Clone or download".
 3. To clone the repository using HTTPS, under "Clone with HTTPS", copy the link.
 4. Open Git Bash
@@ -368,9 +352,9 @@ $ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
 > remove: Total 10 (delta 1), reused 10 (delta 1)
 > Unpacking objects: 100% (10/10), done.
 ```
-
-Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository#cloning-a-repository-to-github-desktop) to retrieve pictures for some of the buttons and more detailed explanations of the above process.<br><br>
+<br><br>
 <a href="#contents">BACK TO CONTENTS 🔼</a>
+
 ## Credits 
 ### Content 
 NOTE: Specific links are included within the Python, HTML, CSS  files. The list below summarises content credits in general.

@@ -95,7 +95,7 @@ def user_selection():
             api_link = requests.get(complete_api_link, timeout=5)
             api_data = api_link.json()
             display_current_weather_info(api_data, location)
-            sleep(2)
+            sleep(1)
             print("\n\n")
             user_sub_selection()
         elif options[choice] == "Forecast Weather":
@@ -105,7 +105,7 @@ def user_selection():
             api_link = requests.get(complete_api_link, timeout=5)
             api_data = api_link.json()
             display_forecast_weather_info(api_data, location)
-            sleep(2)
+            sleep(1)
             print("\n\n")
             user_sub_selection()
         elif options[choice] == "Weather Comparison":
@@ -160,7 +160,7 @@ def user_selection():
                         print(f"The weather condition is", api_data_two['weather'][0]['description'])
                         print ("----------------------------------------------------------------")
             weather_comparison(location_one, location_two)
-            sleep(2)
+            sleep(1)
             print("\n\n")
             user_sub_selection()
         else:
@@ -175,5 +175,5 @@ if __name__ == "__main__":
     print("You can check the current and forecast weather of your choice city.")
     print("You can also compare the current weather of 2 locations.")
     print("-------------------------------------------------------------------\n\n")
-    sleep(2)
+    sleep(1)
     user_selection()
