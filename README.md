@@ -246,60 +246,30 @@ The objective of the site is to allow users to check the current and next 5 days
    <th>Solution</th>
    </tr>
    <tr>
-   <td>Issue with  </td>
-   <td>Changed to conversion from string to int, to string to float.</td>
+   <td>Issue with simple-terminal-menu library not being supported by WINDOWS.</td>
+   <td>Ubantu as virtual machine is installed and used as platform to run the VS Code on and then clone the repository to it.</td>
    </tr>
    <tr>
-   <td>Encountered the following error " NameError: name 'main' is not defined". Error caused by call to main() function from past_weather file</td>
-   <td>Imported run_past_weather function to resolve</td>
+   <td>Issue with importing the API key.</td>
+   <td>Windows environment variable and the function "os.getenv" is used to solve the issue.</td>
    </tr>
    <tr>
-   <td>Unable to return to run.py from feedback file and it was not recommended to use exec file function. </td>
-   <td>Opted to make feedback a Class instead.</td>
+   <td>Issue with incorrect user input.</td>
+   <td>Add get_user_input function with the use of try and except solve the issue.</td>
    </tr>
    <tr>
-   <td> Tried to deploy to Heroku app but got ModuleNotFoundError for termcolor and pyowm.</td>
-   <td>Added both libraries to requirements.txt file</td>
+   <td> Tried to deploy to Heroku app but got failed due to requirements.txt file has been populated with template meta data.</td>
+   <td>Regenerate the requirements.txt and then run the deployment and the issue is solved.</td>
    </tr>
    <tr>
-   <td>Issue with run_past_weather call from past_weather.py file. Caused multi-threading of loading graphic and code getting caught in loop. </td>
-   <td>Resolved by passing boolean and error message back to run_past_weather and deal with error there.</td>
-   </tr>
-   <tr>
-   <td>Favicon would not load in the title bar.</td>
-   <td>Resolved by adding Github raw link.</td>
-   </tr>
-    <tr>
-   <td>Feedback running twice despite selecting delete/return to main menu. Suspect issue with running function from inside the existing function. Same issue occurred when changing feedback and no string passed to sheet despite one being entered.</td>
-   <td>Added while loop to resolve issue in both instances.</td>
-   </tr>
-    <tr>
-   <td>Encountered error in weather_forecast.py file in get_user_coordinates function where a correct entry made latitudes or longitudes were out of range did not pass any values on to the get weather forecast function.</td>
-   <td> Added a continue as opposed to calling get_user_coordinates again followed by return.
-   </td>
-   </tr>
-    <tr>
-   <td>Issue with element misalignment on some screens identified by Steve Doherty in peer code review.
-   <br><img src="views/README-files/flex-wrap-issue.png" height= 200px></td>
-   <td>Flex-wrap attribute had been mistakenly adde to style. Issue resolved when attribute removed.</td>
-   </tr>
-   </tr>
-   <tr>
-   <td>W3 validator return error “Attribute size not allowed on element link at this point.”</td>
-   <td>Removed size attribute from link.</td>
-   </tr>
-   <tr>
-   <td>Issue with retention of top part of 3 day forecast table after system clear command as identified by Lewis Dillon in peer code review.</td>
-   <td>Added system(‘clear’) code to resolve.</td>
-   </tr>
-   <tr>
-   <td>Issue again identified by Lewis Dillon where Russian coordinates cause the following error: “Event Description Must be Specified”.</td>
-   <td> I checked API call in browser address bar and observed that JSON returned ‘alerts’ for the region. Excluded alerts from the API call which resolved the issue.</td>
+   <td>Issue to get the weather condition for next 5 days.</td>
+   <td>Run the for loop for date list and solve the issue.</td>
    </tr>
   </table>
 
 ### Unresolved Bugs or Issues
-- Issue with weather forecast where weather icons move off screen as the weather forecast data prints out and the system clear command does not remove the off screen content. I searched for a solution but could not find anything concrete and decided to opt for a workaround to maintain progress with the project. The solution I adopted was to clear the weather icon from the screen before the weather forecast data is printed. I classify this as unresolved due to the fact I would have preferred the weather icon to remain on screen as the forecast prints out. <br><br>
+- 
+ <br><br>
 <a href="#contents">BACK TO CONTENTS 🔼</a>
 
 ## Deployment
