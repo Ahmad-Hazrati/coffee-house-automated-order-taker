@@ -12,11 +12,11 @@ from simple_term_menu import TerminalMenu
 from time import sleep
 from os import system
 import os
-import openai
+
 
 from art import *
  
-openai.api_key = os.environ["OPENAI_API_KEY"]
+API_KEY = os.getenv('API_KEY')
 
 
 def get_user_input():
@@ -91,7 +91,7 @@ def user_selection():
         elif options[choice] == "Current Weather":
             system('clear')
             location= get_user_input()                   
-            complete_api_link = "https://api.openweathermap.org/data/2.5/weather?q="+location+"&appid="+API_KEY.user_api
+            complete_api_link = "https://api.openweathermap.org/data/2.5/weather?q="+location+"&appid="+str(API_KEY)
             api_link = requests.get(complete_api_link, timeout=5)
             api_data = api_link.json()
             display_current_weather_info(api_data, location)
@@ -101,7 +101,7 @@ def user_selection():
         elif options[choice] == "Forecast Weather":
             system('clear')
             location = get_user_input()
-            complete_api_link = "https://api.openweathermap.org/data/2.5/forecast?q="+location+"&appid="+API_KEY.user_api
+            complete_api_link = "https://api.openweathermap.org/data/2.5/forecast?q="+location+"&appid="+str(API_KEY)
             api_link = requests.get(complete_api_link, timeout=5)
             api_data = api_link.json()
             display_forecast_weather_info(api_data, location)
@@ -112,8 +112,8 @@ def user_selection():
             system('clear')
             location_one = get_user_input()
             location_two = get_user_input()
-            complete_api_link_location_one = "https://api.openweathermap.org/data/2.5/weather?q="+location_one+"&appid="+API_KEY.user_api
-            complete_api_link_location_two = "https://api.openweathermap.org/data/2.5/weather?q="+location_two+"&appid="+API_KEY.user_api
+            complete_api_link_location_one = "https://api.openweathermap.org/data/2.5/weather?q="+location_one+"&appid="+str(API_KEY)
+            complete_api_link_location_two = "https://api.openweathermap.org/data/2.5/weather?q="+location_two+"&appid="+str(API_KEY)
             api_link_one = requests.get(complete_api_link_location_one)
             api_link_two = requests.get(complete_api_link_location_two)
             api_data_one = api_link_one.json()
