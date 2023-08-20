@@ -1,6 +1,8 @@
 # Required libraries
 from datetime import datetime
 from art import *
+#import requests
+#import api_key
 
 # Weather Condition Codes
 # https://openweathermap.org/weather-conditions#Weather-Condition-Codes-2
@@ -16,7 +18,7 @@ CLOUDY = range(801, 900)
 #location = input("Enter the city name: \n")
 
 #Weather url
-#complete_api_link = "https://api.openweathermap.org/data/2.5/weather?q="+location+"&appid="+creds.user_api
+#complete_api_link = "https://api.openweathermap.org/data/2.5/weather?q="+location+"&appid="+api_key.user_api
 #api_link = requests.get(complete_api_link)
 #api_data = api_link.json()
 
@@ -71,4 +73,4 @@ def display_current_weather_info(api_data, location):
     print ("Current wind speed is   :",wind_spd ,'kmph')
     print ("----------------------------------------------------------------")
 
-#current_weather_info = display_current_weather_info(api_data)
+#current_weather_info = display_current_weather_info(api_data, location)
