@@ -12,9 +12,11 @@ from simple_term_menu import TerminalMenu
 from time import sleep
 from os import system
 import os
+import openai
+
 from art import *
  
-API_KEY = os.environ.get('USER_API')
+openai.api_key = os.environ["OPENAI_API_KEY"]
 
 
 def get_user_input():
