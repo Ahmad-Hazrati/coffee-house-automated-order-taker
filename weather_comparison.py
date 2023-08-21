@@ -19,16 +19,16 @@ CLOUDY = range(801, 900)
 #location_two = input("Enter the 2nd city name: \n")
 
 #Weather url
-# complete_api_link_location_one = "https://api.openweathermap.org/data/2.5/"
-# "weather?q="+location_one+"&appid="+creds.user_api
-# complete_api_link_location_two = "https://api.openweathermap.org/data/2.5/"
-# "weather?q="
-# +location_two+"&appid="+creds.user_api
-# api_link_one = requests.get(complete_api_link_location_one)
-# api_link_two = requests.get(complete_api_link_location_two)
+complete_api_link_location_one = "https://api.openweathermap.org/data/2.5/"
+"weather?q="+location_one+"&appid="+creds.user_api
+complete_api_link_location_two = "https://api.openweathermap.org/data/2.5/"
+"weather?q="
++location_two+"&appid="+creds.user_api
+api_link_one = requests.get(complete_api_link_location_one)
+api_link_two = requests.get(complete_api_link_location_two)
 
-# api_data_one = api_link_one.json()
-# api_data_two = api_link_two.json()
+data = api_link_one.json()
+api_d = api_link_two.json()
 """
 
 
@@ -56,17 +56,17 @@ def select_weather_display_params(weather_id):
     return display_params
 
 
-def display_weather_info_location_one(api_data_one, location_one):
+def display_weather_info_location_one(data, location_one):
     """
     Prints formatted weather information about a city.
     """
-    temp_city = ((api_data_one['main']['temp']) - 273.15)
-    feels_like = ((api_data_one["main"]["feels_like"]) - 273.15)
-    country = api_data_one["sys"]["country"]
-    weather_desc = api_data_one['weather'][0]['description']
-    weather_id = api_data_one["weather"][0]["id"]
-    humidity = api_data_one['main']['humidity']
-    wind_spd = api_data_one['wind']['speed']
+    temp_city = ((data['main']['temp']) - 273.15)
+    feels_like = ((data["main"]["feels_like"]) - 273.15)
+    country = data["sys"]["country"]
+    weather_desc = data['weather'][0]['description']
+    weather_id = data["weather"][0]["id"]
+    humidity = data['main']['humidity']
+    wind_spd = data['wind']['speed']
     date_time = datetime.now().strftime("%d %b %Y | %I:%M:%S %p")
     tprint(location_one.upper())
     print("----------------------------------------------------------------")
@@ -85,17 +85,17 @@ def display_weather_info_location_one(api_data_one, location_one):
           "------\n\n")
 
 
-def display_weather_info_location_two(api_data_two, location_two):
+def display_weather_info_location_two(api_d, location_two):
     """
     Prints formatted weather information about a city.
     """
-    temp_city_two = ((api_data_two['main']['temp']) - 273.15)
-    feels_like_two = ((api_data_two["main"]["feels_like"]) - 273.15)
-    country_two = api_data_two["sys"]["country"]
-    weather_desc_two = api_data_two['weather'][0]['description']
-    weather_id_two = api_data_two["weather"][0]["id"]
-    humidity_two = api_data_two['main']['humidity']
-    wind_spd_two = api_data_two['wind']['speed']
+    temp_city_two = ((api_d['main']['temp']) - 273.15)
+    feels_like_two = ((api_d["main"]["feels_like"]) - 273.15)
+    country_two = api_d["sys"]["country"]
+    weather_desc_two = api_d['weather'][0]['description']
+    weather_id_two = api_d["weather"][0]["id"]
+    humidity_two = api_d['main']['humidity']
+    wind_spd_two = api_d['wind']['speed']
     date_time = datetime.now().strftime("%d %b %Y | %I:%M:%S %p")
 
     tprint(location_two.upper())
