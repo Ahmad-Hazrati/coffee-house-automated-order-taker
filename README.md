@@ -67,7 +67,7 @@ The objective of the site is to allow users to check the current and next 5 days
 #### Optional Content
 - The app contains an introductory page containing app title, purpose and menu options.
 ### Structure
-- The structure of the app was defined and mapped out on a [Flowchart](views/README_files/). This helped define the required interactions to develop a usuable app.
+- The structure of the app was defined and mapped out on a This helped define the required interactions to develop a usuable app.
 - The structure of the weather data fetching in to the app is done through API link. 
 ### Skeleton
 #### Wireframes
@@ -109,7 +109,7 @@ The objective of the site is to allow users to check the current and next 5 days
   - The menu options provide the users with the ability to go to the main app page or quit the app.
   _ The up and down selection option give the user more convenient way to select the exact option and eliminates the incorrect input by the user.
   - There also appears an options menu beneath where the user can select to change their name, change their feedback, confirm they are happy with the feedback or delete it altogher.
-  ![feedback-table-and-options](views/README_files/menu_options.png)<br><br>
+  ![Menu Options](views/README_files/menu_options.png)<br><br>
 
 ### Features Left to Implement
 - Initially, the idea was to present the historical weather data of European countries' capital based on the user date choice. But due to limitation of OpenWeathers API daily data request and time couldn't implemented.
@@ -154,6 +154,7 @@ The objective of the site is to allow users to check the current and next 5 days
   - Various errors were purposefully entered into the terminal to check the app response as detailed below:
   - *Non-alphabet / letter entry*: a variety of non-letter entries were made with the expected response detailed below: ![Invalid Input](views/README_files/invalid_input.png).
     A while loop is run to reprompt the user until enters the valid input.
+  - *Invalid City Name*: a number of incorrect city names were typed to test and the response are detailed below: ![Invalid City Name](views/README_files/invalid_city_name.png).
    <br><br>
 - __Forecast Weather__
   - - The forecast weather page loaded successfully prompting the user for input. 
@@ -162,7 +163,8 @@ The objective of the site is to allow users to check the current and next 5 days
   - Various errors were purposefully entered into the terminal to check the app response as detailed below:
   - *Non-alphabet / letter entry*: a variety of non-letter entries were made with the expected response detailed below: ![Invalid Input](views/README_files/invalid_input.png).
     A while loop is run to reprompt the user until enters the valid input.
-   <br><br>
+  - *Invalid City Name*: a number of incorrect city names were typed to test and the response are detailed below: ![Invalid City Name](views/README_files/invalid_city_name.png).
+  <br><br>
 - __Weather Comparison__
    - The weather comparison page loaded successfully prompting the user for inputs. 
   - When the inputs are correct, the weather information is displayed with the result of compared weather conditions. 
@@ -170,6 +172,7 @@ The objective of the site is to allow users to check the current and next 5 days
   - Various errors were purposefully entered into the terminal to check the app response as detailed below:
   - *Non-alphabet / letter entry*: a variety of non-letter entries were made with the expected response detailed below: ![Invalid Input](views/README_files/invalid_input.png).
     A while loop is run to reprompt the user until enters the valid input.
+  - *Invalid City Name*: a number of incorrect city names were typed to test and the response are detailed below: ![Invalid City Name](views/README_files/invalid_city_name.png).
    <br><br>
 - __User Options__
   - The two User Options formats - main menu and and sub-menu - were both presented at the appropriate time: current weather, forecast weather, and weather comparison respectively.
@@ -222,20 +225,16 @@ The objective of the site is to allow users to check the current and next 5 days
 ### Validator Testing 
 
 - Python
-  - Each Python file was passed through the Code Institute Linter. The initial results are detailed [here.](views/README-files/linter-results.pdf) After refactoring, the code was passed through the linter again and the results are shown below.
-    - The classes.py file was passed through the linter with no warnings or errors returned.
-  ![Classes File PEP8 Results](views/README-files/classes-file-pep8-results.png)<br><br> 
-     - The constants.py file was passed through the linter with no warnings or errors returned.
-  ![Constants File PEP8 Results](views/README-files/constants-file-pep8-results.png)<br><br> 
-    - The functions.py file was passed through the linter with no warnings or errors returned.
-  ![Functions File PEP8 Results](views/README-files/functions-file-pep8-results.png)<br><br> 
-    - The past_weather.py file was passed through the linter with no warnings or errors returned.
-  ![Past Weather File PEP8 Results](views/README-files/pastweather-file-PEP8-results.png)<br><br> 
-    - The run.py file was passed through the linter with no warnings or errors returned.
-  ![Run File PEP8 Results](views/README-files/run-file-PEP8-results.png)<br><br>  
-    - The weather_forecast.py file was passed through the linter with no warnings or errors returned.
-  ![Weather Forecast PEP8 Results](views/README-files/weatherforecast-file-PEP8-results.png)<br><br> 
- 
+  - Each Python file was passed through the Code Institute Linter. After refactoring, the code was passed through the linter again and the results are shown below.
+    - The current_weather.py file was passed through the linter with no warnings or errors returned.
+  ![Current Weather File PEP8 Results](views/README_files/current_weather_pep8.png)<br><br> 
+     - The forecast_weather.py file was passed through the linter with no warnings or errors returned.
+  ![Forecast Weather File PEP8 Results](views/README_files/forecast_weather_pep8.png)<br><br> 
+    - The weather_comparison.py file was passed through the linter with no warnings or errors returned.
+  ![Weather Comparison File PEP8 Results](views/README_files/weather_comparison_pep8.png)<br><br> 
+    - The run.py file was passed through the linter and few long line warnings returned due to conditional statements being used and couldn't find the desired solution to meet them.
+  ![Run File PEP8 Results](views/README_files/run_pep8.png)<br><br>  
+
 <a href="#contents">BACK TO CONTENTS 🔼</a>
 
 ### Bugs / Issues
@@ -255,7 +254,7 @@ The objective of the site is to allow users to check the current and next 5 days
    </tr>
    <tr>
    <td>Issue with incorrect user input.</td>
-   <td>Add get_user_input function with the use of try and except solve the issue.</td>
+   <td>Add get_user_input function with the use of try and except and if-else conditional statements to solve the issue.</td>
    </tr>
    <tr>
    <td> Tried to deploy to Heroku app but got failed due to requirements.txt file has been populated with template meta data.</td>
@@ -268,7 +267,7 @@ The objective of the site is to allow users to check the current and next 5 days
   </table>
 
 ### Unresolved Bugs or Issues
-- 
+- The issue to indent the long conditional statements are not met due to not finding required data and insufficient time.
  <br><br>
 <a href="#contents">BACK TO CONTENTS 🔼</a>
 

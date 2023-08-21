@@ -111,10 +111,10 @@ def user_selection():
                 """
                 Compare the weather of 2 different cities and print the output.
                 """
-                if api_d["cod"] == "404" or data["cod"] == "404":
+                if data["cod"] == "404" or api_d["cod"] == "404":
                     print("Invalid location / city name, "
                           "Please check your city name")
-                elif api_d["cod"] == "401" or data["cod"] == "401":
+                elif data["cod"] == "401" or api_d["cod"] == "401":
                     print("Invalid API key, Please check your API key")
                 else:
                     if data["weather"][0]["main"] == api_d["weather"][0]["main"]:
@@ -126,10 +126,9 @@ def user_selection():
                         print("-----------------------------------"
                               "-----------------------------")
                     else:
-                        if data["weather"][0]["mai""n"] == "Clear" \
-                                  and api_d["weather"][0]["main"] != "Clear":
+                        if data["weather"][0]["mai""n"] == "Clear" and api_d["weather"][0]["main"] != "Clear":
                             print(f"The weather of {location_one} is better " +
-                                  "than the weather of {location_two}.")
+                                  f"than the weather of {location_two}.")
                             print(f"The weather condition " +
                                   "is", data['weather'][0]['description'])
                             print("----------------------------------------------------------------")
@@ -155,7 +154,7 @@ def user_selection():
                                   "-----------------------------------")
                         elif data["weather"][0]["main"] == "Thunderstorm" and api_d["weather"][0]["main"] != "Thunderstorm" or "Snow" or "Drizzle" or "Rain" or "Clouds" or "Clear":
                             print(f"The weather of {location_one} is better than "
-                                  "the weather of {location_two}.")
+                                  f"the weather of {location_two}.")
                             print(f"The weather is conditio"
                                   f"n", data['weather'][0]['description'])
                             print("-----------------------------"
@@ -164,7 +163,7 @@ def user_selection():
                             print(f"The weather of {location_two} is better than "
                                   f"the weather of {location_one}.")
                             print(f"The weather condition "
-                                  "is", api_d['weather'][0]['description'])
+                                  f"is", api_d['weather'][0]['description'])
                             print("-------------------------------------"
                                   "---------------------------")
             weather_comparison(location_one, location_two)
