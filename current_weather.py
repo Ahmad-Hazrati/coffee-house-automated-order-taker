@@ -55,26 +55,35 @@ def display_current_weather_info(api_data, location):
     """
     Prints formatted weather information about a city.
     """
-    temp_city = ((api_data['main']['temp']) - 273.15)
-    feels_like = ((api_data["main"]["feels_like"]) - 273.15)
-    country = api_data["sys"]["country"]
-    weather_desc = api_data['weather'][0]['description']
-    weather_id = api_data["weather"][0]["id"]
-    humidity = api_data['main']['humidity']
-    wind_spd = api_data['wind']['speed']
-    date_time = datetime.now().strftime("%d %b %Y | %I:%M:%S %p")
-
-    tprint(location.upper())
-    print("----------------------------------------------------------------")
-    print("Weather Status for - {}  || {} || {}"
-          .format(location.upper(), country, date_time))
-    print("----------------------------------------------------------------")
-    # Assign the the weather_display function to the weather_symbol variable
-    weather_symbol = select_weather_display_params(weather_id)
-    print("Current temperature is  : {:.2f} deg C".format(temp_city))
-    print("Currently it feels like : {:.2f} deg C".format(feels_like))
-    print("Weather condition is    :", weather_desc)
-    print("Current weather descrip :", weather_symbol)
-    print("Current Humidity is     :", humidity, '%')
-    print("Current wind speed is   :", wind_spd, 'kmph')
-    print("----------------------------------------------------------------")
+    if api_data["cod"] == "404":
+        print("Invalid City: {}, Please check your city name".format(location))
+    elif api_data["cod"] == "401":
+        print("Invalid API key, Please check your API key")
+    else:
+        temp_city = ((api_data['main']['temp']) - 273.15)
+        feels_like = ((api_data["main"]["feels_like"]) - 273.15)
+        country = api_data["sys"]["country"]
+        weather_desc = api_data['weather'][0]['description']
+        weather_id = api_data["weather"][0]["id"]
+        humidity = api_data['main']['humidity']
+        wind_spd = api_data['wind']['speed']
+        date_time = datetime.now().strftime("%d %b %Y | %I:%M:%S %p")
+        tprint(location.upper())
+        print("---------------------------------------" +
+              "-------------------------")
+        print("Weather Status for - {}" +
+              "|| {} || {}"
+              .format(location.upper(), country, date_time))
+        print("---------------------------------------" +
+              "-------------------------")
+        # Assign the the weather_display function
+        # to the weather_symbol variable
+        weather_symbol = select_weather_display_params(weather_id)
+        print("Current temperature is  : {:.2f} deg C".format(temp_city))
+        print("Currently it feels like : {:.2f} deg C".format(feels_like))
+        print("Weather condition is    :", weather_desc)
+        print("Current weather descrip :", weather_symbol)
+        print("Current Humidity is     :", humidity, '%')
+        print("Current wind speed is   :", wind_spd, 'kmph')
+        print("----------------------------------------" +
+              "------------------------")
